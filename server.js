@@ -17,7 +17,7 @@ app.use(express.json());
 
 
 // Set up static directory
-// app.use(express.static("public"));
+app.use(express.static("./billboss/public"));
 
 // Import routes
 // app.use(require("./routes/API.js"));
