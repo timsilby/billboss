@@ -1,1 +1,1 @@
-# bills-app-frontend
+# bills-app
