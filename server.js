@@ -1,4 +1,5 @@
 require("dotenv").config();
+const path = require("path");
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
@@ -17,10 +18,18 @@ app.use(express.json());
 
 
 // Set up static directory
-app.use(express.static("./billboss/public"));
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static("client/build"));
+}
 
 // Import routes
 // app.use(require("./routes/API.js"));
+
+// Send all requests to the react app.
+app.get("*", function (req, res) {
+	res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
 
 // Connect to the database
 mongoose.connect(process.env.MONGODB_URI, {
@@ -28,8 +37,8 @@ mongoose.connect(process.env.MONGODB_URI, {
 	useFindAndModify: true,
 	useUnifiedTopology: true
 })
-.then(conn => console.log(`Connected to ${conn.connections[0].host}.`))
-.catch(err => console.log(err));
+	.then(conn => console.log(`Connected to ${conn.connections[0].host}.`))
+	.catch(err => console.log(err));
 
 // Start the server
 app.listen(process.env.PORT, () => {
