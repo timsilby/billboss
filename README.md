@@ -1,1 +1,1 @@
-# bills-app
+# BillBoss
