@@ -1,42 +1,28 @@
 import { useState } from 'react';
-import { useAuth } from '../utils/useAuth';
 
 
-const UserAccountForm = () => {
+const UserAccountForm = ({ handleSubmit }) => {
 
-	const [email, setEmail] = useState();
-	const [password, setPassword] = useState();
-
-	const auth = useAuth();
-
-	const handleSubmit = (event) => {
-
-		event.preventDefault();
-
-		console.log(`submitted email: ${email} password: ${password}`);
-
-		auth.firebaseLogin(email, password)
-		.then(console.log(auth.user))
-		.catch(err => console.error(err))
-
-	}
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 
 	return (
 		<div>
-			<h2>Login</h2>
 			<form onSubmit={handleSubmit}>
 				<input
+					name="email"
 					type="text"
 					onChange={({ target }) => setEmail(target.value)}
+					value={email}
 					placeholder="Email"
 				/>
-				<br />
 				<input
+					name="password"
 					type="password"
 					onChange={({ target }) => setPassword(target.value)}
+					value={password}
 					placeholder="Password"
 				/>
-				<br />
 				<button type="submit">
 					Sign in
                 </button>

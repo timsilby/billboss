@@ -1,13 +1,24 @@
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ProvideAuth } from "./utils/useAuth";
-import UserAccountForm from './components/UserAccountForm';
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+
 
 function App() {
 	return (
 		<ProvideAuth>
-			<UserAccountForm />
+			<Router>
+				<Switch>
+					<Route path="/dashboard">
+						<Dashboard />
+					</Route>
+					<Route path="/">
+						<Login />
+					</Route>
+				</Switch>
+			</Router>
 		</ProvideAuth>
-
-  );
+	);
 }
 
 export default App;
