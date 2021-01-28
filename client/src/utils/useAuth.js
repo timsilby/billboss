@@ -66,6 +66,7 @@ function useProvideAuth() {
 			.signOut()
 			.then(() => {
 				setUser(false);
+				console.log("Logged out");
 			});
 	};
 

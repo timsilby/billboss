@@ -1,13 +1,24 @@
-import { useHistory } from "react-router-dom";
+import { useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import UserAccountForm from "../components/UserAccountForm";
 import { useAuth } from '../utils/useAuth';
 
 
 const Login = () => {
 
+
+
+	// Get any state that was passed from referring pages. If it exists
+	// set state.
+	let referrer;
+	const { state } = useLocation();
+	if (state) {referrer = state.referrer};
+
+	// Grab some hooks.
 	const auth = useAuth();
 	const history = useHistory();
 
+	// Login process
 	const handleSubmit = (event) => {
 
 		event.preventDefault();
@@ -16,12 +27,11 @@ const Login = () => {
 		const email = event.target.email.value;
 		const password = event.target.password.value;
 
-		console.log(`submitted email: ${email} password: ${password}`);
-
+		// Call the firebaseLogin function from useAuth.
 		auth.firebaseLogin(email, password)
 			.then(() => {
 				console.log(auth.user);
-				history.push("/dashboard");
+				history.push(referrer || "/dashboard");
 			})
 			.catch(err => console.error(err))
 
