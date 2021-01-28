@@ -6,13 +6,11 @@ import { useAuth } from '../utils/useAuth';
 
 const Login = () => {
 
-
-
-	// Get any state that was passed from referring pages. If it exists
-	// set state.
+	// Get any state that was passed from referring page. If it exists
+	// get the referrer.
 	let referrer;
 	const { state } = useLocation();
-	if (state) {referrer = state.referrer};
+	if (state) { referrer = state.referrer };
 
 	// Grab some hooks.
 	const auth = useAuth();
@@ -31,12 +29,12 @@ const Login = () => {
 		auth.firebaseLogin(email, password)
 			.then(() => {
 				console.log(auth.user);
+				// Redirect to referring page or dashboard
 				history.push(referrer || "/dashboard");
 			})
 			.catch(err => console.error(err))
 
 	}
-
 
 	return (
 		<div>
