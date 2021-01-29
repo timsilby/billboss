@@ -1,9 +1,10 @@
 require("dotenv").config();
-const path = require("path");
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
+const routes = require("./routes/all-routes");
+
 
 // Set up express
 const app = express();
@@ -22,14 +23,8 @@ if (process.env.NODE_ENV === "production") {
 	app.use(express.static("client/build"));
 }
 
-// Import routes
-// app.use(require("./routes/API.js"));
-
-// Send all requests to the react app.
-app.get("*", function (req, res) {
-	res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
+// Add routes
+app.use(routes);
 
 // Connect to the database
 mongoose.connect(process.env.MONGODB_URI, {
