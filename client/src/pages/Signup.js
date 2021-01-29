@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import UserAccountForm from "../components/UserAccountForm";
-import { useAuth } from '../utils/useAuth';
+import { useAuth } from "../utils/use-auth";
 
 
 const Signup = () => {

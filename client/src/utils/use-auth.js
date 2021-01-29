@@ -1,7 +1,6 @@
-import { useState, useEffect, useContext, createContext } from 'react';
+import { useState, useEffect, useContext, createContext } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
-require("dotenv").config();
 
 // Firebase config
 const firebaseConfig = {
