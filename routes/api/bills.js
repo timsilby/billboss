@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const billsController = require("../../controllers/billsController");
+const billsController = require("../../controllers/bills-controller");
 
 // These routes match /api/bills. Imported into api-routes.js.
 // Req and res are automatically passed through to the handlers in most cases.
