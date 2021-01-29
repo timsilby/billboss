@@ -33,6 +33,11 @@ const billsetSchema = new Schema({
 		type: Boolean,
 		default: false
 	},
+	active: {
+		type: Boolean,
+		default: true,
+		required: true
+	},
 	userId: {
 		type: Schema.ObjectId,
 		required: true
