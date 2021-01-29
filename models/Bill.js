@@ -1,5 +1,5 @@
-import mongoose, { model } from "mongoose";
-const { Schema } = mongoose;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const billSchema = new Schema({
 
@@ -29,6 +29,6 @@ const billSchema = new Schema({
 
 });
 
-const Bill = model("Bill", billSchema);
+const Bill = mongoose.model("Bill", billSchema);
 
-export default Bill;
+module.exports = Bill;

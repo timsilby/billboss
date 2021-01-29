@@ -1,5 +1,5 @@
-import mongoose, { model } from "mongoose";
-const { Schema } = mongoose;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const billsetSchema = new Schema({
 
@@ -39,6 +39,6 @@ const billsetSchema = new Schema({
 	}
 });
 
-const Billset = model("Billset", billsetSchema);
+const Billset = mongoose.model("Billset", billsetSchema);
 
-export default Billset;
+module.exports = Billset;
