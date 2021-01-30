@@ -25,7 +25,6 @@ function getAccountById(req, res) {
 }
 
 module.exports = {
-	getAccounts,
 	createAccount,
 	updateAccount,
 	getAccountById
