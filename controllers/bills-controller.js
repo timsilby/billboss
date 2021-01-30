@@ -3,41 +3,41 @@ const db = require("../models/Bill");
 // Function to search bills collection. Query is passed in (req.query)
 function getBills(req, res) {
 
-	console.log("getBills function");
-	console.log(req.body);
-	res.end();
+	const body = JSON.stringify(req.body);
+	const result = `getBills function | ${body}`
+	res.send(result);
 
 }
 
 function createBill(req, res) {
 
-	console.log("createBill function");
-	console.log(req.body);
-	res.end();
+	const body = JSON.stringify(req.body);
+	const result = `createBill function | ${body}`
+	res.send(result);
 
 }
 
 function updateBill(req, res) {
 
-	console.log("updateBill function");
-	console.log(req.query.id);
-	res.end();
+	const body = JSON.stringify(req.body);
+	const result = `updateBill function | ${body} | ${req.query.id}`
+	res.send(result);
 
 }
 
 function getBillById(req, res) {
 
-	console.log("getBillById function");
-	console.log(req.query.id);
-	res.end();
+	const body = JSON.stringify(req.body);
+	const result = `getBillById function | ${body} | ${req.query.id}`
+	res.send(result);
 
 }
 
 function deleteBill(req, res) {
 
-	console.log("deleteBill function");
-	console.log(req.query.id);
-	res.end();
+	const body = JSON.stringify(req.body);
+	const result = `deleteBill function | ${body} | ${req.query.id}`
+	res.send(result);
 
 }
 

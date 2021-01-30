@@ -4,12 +4,10 @@ const accountsController = require("../../controllers/accounts-controller");
 // These routes match /api/Accounts. Imported into api-routes.js.
 // Req and res are automatically passed through to the handlers in most cases.
 router.route("/")
-	.get(function (req, res) {
-		if (req.query.id) {accountsController.getAccountById(req, res)}
-		else {accountsController.getAccounts(req, res)}
-	})
+	.get(accountsController.getAccountById)
 	.post(accountsController.createAccount)
-	.put(accountsController.updateAccount);
+	.put(accountsController.updateAccount)
+	.delete(accountsController.deleteAccount);
 
 
 module.exports = router;

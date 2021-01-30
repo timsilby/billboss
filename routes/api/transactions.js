@@ -7,7 +7,8 @@ router.route("/")
 		else {transactionsController.getTransactions(req, res)}
 	})
 	.post(transactionsController.createTransaction)
-	.put(transactionsController.updateTransaction);
+	.put(transactionsController.updateTransaction)
+	.delete(transactionsController.deleteTransaction);
 
 
 module.exports = router;

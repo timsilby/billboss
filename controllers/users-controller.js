@@ -1,31 +1,40 @@
 const db = require("../models/User");
 
-function getUsers(req, res) {
+function createUser(req, res) {
 
-	console.log("getUsers function");
-	console.log(req.body);
-	res.end();
+	const body = JSON.stringify(req.body);
+	const result = `createUser function | ${body}`
+	res.send(result);
 
 }
 
-function createUser(req, res) {
+function updateUser(req, res) {
 
-	console.log("createUser function");
-	console.log(req.body);
-	res.end();
+	const body = JSON.stringify(req.body);
+	const result = `updateUser function | ${body} | ${req.query.id}`
+	res.send(result);
 
 }
 
 function getUserById(req, res) {
 
-	console.log("getUserById function");
-	console.log(req.query.id);
-	res.end();
+	const body = JSON.stringify(req.body);
+	const result = `getUserById function | ${body} | ${req.query.id}`
+	res.send(result);
+
+}
+
+function deleteUser(req, res) {
+
+	const body = JSON.stringify(req.body);
+	const result = `deleteUser function | ${body} | ${req.query.id}`
+	res.send(result);
 
 }
 
 module.exports = {
-	getUsers,
 	createUser,
-	getUserById
+	updateUser,
+	getUserById,
+	deleteUser
 }

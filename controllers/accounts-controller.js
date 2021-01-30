@@ -1,31 +1,41 @@
+const { json } = require("express");
 const db = require("../models/Account");
+
+function getAccountById(req, res) {
+
+	const body = JSON.stringify(req.body);
+	const result = `getAccountById function | ${body} | ${req.query.id}`
+	res.send(result);
+
+}
 
 function createAccount(req, res) {
 
-	console.log("createAccount function");
-	console.log(req.body);
-	res.end();
+	const body = JSON.stringify(req.body);
+	const result = `createAccount function | ${body}`
+	res.send(result);
 
 }
 
 function updateAccount(req, res) {
 
-	console.log("updateAccount function");
-	console.log(req.query.id);
-	res.end();
+	const body = JSON.stringify(req.body);
+	const result = `updateAccount function | ${body} | ${req.query.id}`
+	res.send(result);
 
 }
 
-function getAccountById(req, res) {
+function deleteAccount(req, res) {
 
-	console.log("getAccountById function");
-	console.log(req.query.id);
-	res.end();
+	const body = JSON.stringify(req.body);
+	const result = `deleteAccount function | ${body} | ${req.query.id}`
+	res.send(result);
 
 }
 
 module.exports = {
 	createAccount,
 	updateAccount,
-	getAccountById
+	getAccountById,
+	deleteAccount
 }

@@ -9,7 +9,8 @@ router.route("/")
 		else {billsController.getBillsets(req, res)}
 	})
 	.post(billsController.createBillset)
-	.put(billsController.updateBillset);
+	.put(billsController.updateBillset)
+	.delete(billsController.deleteBillset);
 
 
 module.exports = router;
