@@ -1,4 +1,4 @@
-import { useAuth } from "../utils/use-auth";
+import { useAuth } from "../utils/useAuth";
 
 const Navbar = () => {
 

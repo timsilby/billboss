@@ -1,5 +1,10 @@
+import useTokenHeader from "../utils/useTokenHeader";
 
 const Dashboard = () => {
+
+	const tokenHeader = useTokenHeader();
+
+	console.log(tokenHeader);
 
 	return (
 		<div>

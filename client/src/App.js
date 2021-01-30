@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ProvideAuth } from "./utils/use-auth";
+import { ProvideAuth } from "./utils/useAuth";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup"
