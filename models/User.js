@@ -23,6 +23,10 @@ const userSchema = new Schema({
 		default: function() {
 			return `${this.firstName} ${this.lastName || ""}`
 		}
+	},
+	firebaseId: {
+		type: String,
+		required: true
 	}
 
 });
