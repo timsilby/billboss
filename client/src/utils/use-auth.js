@@ -43,6 +43,7 @@ function useProvideAuth() {
 			.signInWithEmailAndPassword(email, password)
 			.then(res => {
 				setUser(res.user);
+				console.log(res.user);
 				return res.user;
 			});
 	};

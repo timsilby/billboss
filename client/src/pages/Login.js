@@ -27,7 +27,6 @@ const Login = () => {
 		// Call the firebaseLogin function from useAuth.
 		auth.firebaseLogin(email, password)
 			.then(() => {
-				console.log(auth.user);
 				// Redirect to referring page or dashboard
 				history.push(referrer || "/dashboard");
 			})
