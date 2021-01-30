@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { schema } = require("./Bill");
 const Schema = mongoose.Schema;
 
 const transactionSchema = new Schema({
@@ -19,6 +20,10 @@ const transactionSchema = new Schema({
 		required: true
 	},
 	billId: Schema.ObjectId,
+	accountId: {
+		type: Schema.ObjectId,
+		required: true
+	},
 	userId: {
 		type: Schema.ObjectId,
 		required: true
