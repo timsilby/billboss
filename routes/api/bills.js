@@ -9,7 +9,8 @@ router.route("/")
 		else {billsController.getBills(req, res)}
 	})
 	.post(billsController.createBill)
-	.put(billsController.updateBill);
+	.put(billsController.updateBill)
+	.delete(billsController.deleteBill);
 
 
 module.exports = router;

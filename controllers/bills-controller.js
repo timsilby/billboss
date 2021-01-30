@@ -33,9 +33,18 @@ function getBillById(req, res) {
 
 }
 
+function deleteBill(req, res) {
+
+	console.log("deleteBill function");
+	console.log(req.query.id);
+	res.end();
+
+}
+
 module.exports = {
 	getBills,
 	createBill,
 	updateBill,
-	getBillById
+	getBillById,
+	deleteBill
 }
