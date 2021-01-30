@@ -11,9 +11,9 @@ function getBills(req, res) {
 
 function createBill(req, res) {
 
-	const body = JSON.stringify(req.body);
-	const result = `createBill function | ${body}`
-	res.send(result);
+	db.create(req.body)
+		.then(dbModel => res.json(dbModel))
+		.catch(err => res.status(422).json(err))
 
 }
 
