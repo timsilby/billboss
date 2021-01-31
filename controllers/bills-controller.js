@@ -3,9 +3,9 @@ const db = require("../models/Bill");
 // Function to search bills collection. Query is passed in (req.query)
 function getBills(req, res) {
 
-	const body = JSON.stringify(req.body);
-	const result = `getBills function | ${body}`
-	res.send(result);
+	db.find({})
+		.then(dbModel => res.json(dbModel))
+		.catch(err => res.status(422).json(err))
 
 }
 

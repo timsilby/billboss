@@ -3,7 +3,9 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
+const cors = require("cors");
 const routes = require("./routes/all-routes");
+const verifyToken = require("./utils/verifyToken");
 
 
 // Set up express
@@ -16,6 +18,8 @@ app.use(logger("dev"));
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
+app.use("/api", verifyToken);
 
 
 // Set up static directory
