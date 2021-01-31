@@ -1,20 +1,6 @@
 import { useState, useEffect, useContext, createContext } from "react";
-import firebase from "firebase/app";
+import fire from "./fire"
 import "firebase/auth";
-
-// Firebase config
-const firebaseConfig = {
-	apiKey: "AIzaSyCke9rpq-i75-H6k31P-1taD7C19HHNKTc",
-	authDomain: "billboss-auth.firebaseapp.com",
-	projectId: "billboss-auth",
-	storageBucket: "billboss-auth.appspot.com",
-	messagingSenderId: "376178555491",
-	appId: "1:376178555491:web:afc017c3f4f1c075831656"
-};
-
-
-// Initialise firebase
-firebase.initializeApp(firebaseConfig);
 
 // Create context
 const authContext = createContext();
@@ -38,7 +24,7 @@ function useProvideAuth() {
 
 	// Firebase login function
 	const firebaseLogin = (email, password) => {
-		return firebase
+		return fire
 			.auth()
 			.signInWithEmailAndPassword(email, password)
 			.then(res => {
@@ -49,7 +35,7 @@ function useProvideAuth() {
 
 	// Firebase create user function
 	const firebaseSignUp = (email, password) => {
-		return firebase
+		return fire
 			.auth()
 			.createUserWithEmailAndPassword(email, password)
 			.then(res => {
@@ -60,7 +46,7 @@ function useProvideAuth() {
 
 	// Firebase logout function
 	const firebaseLogout = () => {
-		return firebase
+		return fire
 			.auth()
 			.signOut()
 			.then(() => {
@@ -69,20 +55,9 @@ function useProvideAuth() {
 			});
 	};
 
-	// Firebase get id token function
-	const firebaseGetIdToken = () => {
-		return firebase
-			.auth()
-			.currentUser
-			.getIdToken()
-			.then((idToken) => {
-				return idToken;
-			});
-	}
-
 	// Set up useEffect hook to get currently logged in user on mount.
 	useEffect(() => {
-		const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+		const unsubscribe = fire.auth().onAuthStateChanged(user => {
 			if (user) { setUser(user); }
 			else { setUser(false); }
 		});
@@ -96,8 +71,7 @@ function useProvideAuth() {
 		user,
 		firebaseLogin,
 		firebaseSignUp,
-		firebaseLogout,
-		firebaseGetIdToken
+		firebaseLogout
 	};
 
 }
