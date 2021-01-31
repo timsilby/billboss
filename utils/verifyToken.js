@@ -32,7 +32,6 @@ async function verifyToken(req, res, next) {
 
 	// If the required header exists, grab the token and call verifyIdToken to check it.
 	// If authorized, add to the req object before passing the request on.
-	// if (header !== "Bearer null" && req.headers.authorization.startsWith("Bearer ")) {
 	if (header !== undefined && header !== "Bearer null" && req.headers.authorization.startsWith('Bearer ')) {
 
 		const idToken = req.headers.authorization.split("Bearer ")[1];
