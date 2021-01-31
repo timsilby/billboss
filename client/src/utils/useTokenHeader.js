@@ -16,7 +16,6 @@ function useTokenHeader() {
 		},
 	};
 
-	console.log(tokenHeader);
 	return tokenHeader;
 
 }
