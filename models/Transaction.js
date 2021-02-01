@@ -24,8 +24,8 @@ const transactionSchema = new Schema({
 		type: Schema.ObjectId,
 		required: true
 	},
-	userId: {
-		type: Schema.ObjectId,
+	fireUid: {
+		type: String,
 		required: true
 	}
 

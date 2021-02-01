@@ -22,8 +22,8 @@ const billSchema = new Schema({
 		default: false
 	},
 	billset: Schema.ObjectId,
-	userId: {
-		type: Schema.ObjectId,
+	fireUid: {
+		type: String,
 		required: true
 	}
 

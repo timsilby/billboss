@@ -24,7 +24,7 @@ const userSchema = new Schema({
 			return `${this.firstName} ${this.lastName || ""}`
 		}
 	},
-	firebaseId: {
+	fireUid: {
 		type: String,
 		required: true
 	}

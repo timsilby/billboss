@@ -38,8 +38,8 @@ const billsetSchema = new Schema({
 		default: true,
 		required: true
 	},
-	userId: {
-		type: Schema.ObjectId,
+	fireUid: {
+		type: String,
 		required: true
 	}
 });

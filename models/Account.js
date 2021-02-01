@@ -7,8 +7,8 @@ const accountSchema = new Schema({
 		type: Number,
 		required: true
 	},
-	userId: {
-		type: Schema.ObjectId,
+	fireUid: {
+		type: String,
 		required: true
 	}
 
