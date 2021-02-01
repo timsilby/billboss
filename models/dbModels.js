@@ -1,4 +1,4 @@
-
+// Require the models. Export the object which will be picked up by the controller.
 const dbModels = {
 
 	accounts: require("./Account"),
