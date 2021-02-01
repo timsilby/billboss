@@ -33,7 +33,7 @@ app.use(routes);
 // Connect to the database
 mongoose.connect(process.env.MONGODB_URI, {
 	useNewUrlParser: true,
-	useFindAndModify: true,
+	useFindAndModify: false,
 	useUnifiedTopology: true
 })
 	.then(conn => console.log(`Connected to ${conn.connections[0].host}.`))

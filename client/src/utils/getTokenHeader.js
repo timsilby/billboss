@@ -17,7 +17,6 @@ const getTokenHeader = async () => {
 		},
 	};
 
-	console.log(tokenHeader);
 	return tokenHeader;
 
 }

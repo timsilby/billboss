@@ -17,16 +17,12 @@ const serviceAccount = {
 	"client_x509_cert_url": process.env.FIREBASE_SA_CLIENT_X509_CERT_URL
 }
 
-
-console.log(serviceAccount);
-
 admin.initializeApp({
 	credential: admin.credential.cert(serviceAccount)
 });
 
 async function verifyToken(req, res, next) {
 
-	console.log(req.headers);
 	// Get authorization value from header if it exists
 	const header = req.headers.authorization;
 

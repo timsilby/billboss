@@ -1,10 +1,9 @@
 const path = require("path");
-const verifyToken = require("../utils/verifyToken");
 const router = require("express").Router();
-const apiRoutes = require("./api/api-routes");
+const apiRoutes = require("./api-routes");
 
 // API Routes
-router.use("/api", apiRoutes);
+router.use(apiRoutes);
 
 // Send the react app if not requesting an api route.
 router.use(function(req, res) {
