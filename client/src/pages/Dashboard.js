@@ -22,11 +22,11 @@ const Dashboard = () => {
 
 	const dosomething = async () => {
 
-		const dbdata = await apiRequest.getEntries(`/bills/${fireUid}`)
-		// const dbdata = await apiRequest.createEntry(`/bills/${fireUid}`, doc)
-		// const dbdata = await apiRequest.getEntryById(`/bills?id=60177615651d8c5918ceabb9`, doc)
-		// const dbdata = await apiRequest.updateEntry(`/bills?id=60176cc03e35081734d0c0c7`, doc)
-		// const dbdata = await apiRequest.deleteEntry(`/bills?id=60177615651d8c5918ceabb9`)
+		const dbdata = await apiRequest.getEntries(`/api/bills/${fireUid}`)
+		// const dbdata = await apiRequest.createEntry(`/api/bills/${fireUid}`, doc)
+		// const dbdata = await apiRequest.getEntryById(`/api/bills?id=60177615651d8c5918ceabb9`, doc)
+		// const dbdata = await apiRequest.updateEntry(`/api/bills?id=60176cc03e35081734d0c0c7`, doc)
+		// const dbdata = await apiRequest.deleteEntry(`/api/bills?id=60177615651d8c5918ceabb9`)
 		setData(JSON.stringify(dbdata.data));
 
 	}
