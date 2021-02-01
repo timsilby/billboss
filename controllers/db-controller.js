@@ -1,6 +1,7 @@
 const dbModels = require("../models/dbModels");
 
-// Function to search bills collection. Query is passed in (req.query)
+// db query functions
+
 function getDocuments(req, res) {
 
 	dbModels[req.params.dbcollection]

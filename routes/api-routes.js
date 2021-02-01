@@ -24,6 +24,7 @@ router.route("/api/:dbcollection/:fireid?")
 		if (req.query.id) { controller.getDocumentById(req, res) }
 		else { controller.getDocuments(req, res) }
 	})
+
 	.post(controller.createDocument)
 	.put(controller.updateDocument)
 	.delete(controller.deleteDocument);
