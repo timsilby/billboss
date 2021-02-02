@@ -6,6 +6,7 @@ const Navbar = () => {
 
 	return (
 		<div>
+			<h1>{auth.user.displayName}</h1>
 			<button onClick={auth.firebaseLogout}>Log out</button>
 		</div>
 	);

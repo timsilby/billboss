@@ -11,6 +11,8 @@ const Signup = () => {
 	// Submit signup form
 	const handleSubmit = async (event) => {
 
+		event.preventDefault();
+
 		// Grab form values
 		const userData = {
 			displayName: event.target.displayName.value.trim(),
@@ -18,14 +20,14 @@ const Signup = () => {
 			password: event.target.password.value.trim()
 		}
 
-		// Try registering the user. If successful, get the new uid from Firebase and
-		// create a user entry in the database.
+		// Try registering the user.
 		try {
 
-
+			await auth.firebaseSignup(userData);
+			history.push("/dashboard");
 		}
 		catch (error) {
-
+			console.log(error);
 		}
 
 	}

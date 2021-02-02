@@ -23,11 +23,11 @@ const SignupForm = ({ handleSubmit }) => {
 		<div>
 			<form onSubmit={handleSubmit}>
 				<input
-					name="firstName"
+					name="displayName"
 					type="text"
 					onChange={onChange}
 					value={formState.displayName}
-					placeholder="First Name"
+					placeholder="Name"
 				/>
 				<input
 					name="email"

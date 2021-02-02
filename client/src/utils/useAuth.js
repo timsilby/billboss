@@ -34,12 +34,13 @@ function useProvideAuth() {
 	};
 
 	// Firebase create user function
-	const firebaseSignUp = (email, password) => {
+	const firebaseSignup = (userData) => {
 		return fire
 			.auth()
-			.createUserWithEmailAndPassword(email, password)
+			.createUserWithEmailAndPassword(userData.email, userData.password)
 			.then(res => {
 				setUser(res.user);
+				res.user.updateProfile({ displayName: userData.displayName })
 				return res.user;
 			});
 	};
@@ -70,7 +71,7 @@ function useProvideAuth() {
 	return {
 		user,
 		firebaseLogin,
-		firebaseSignUp,
+		firebaseSignup,
 		firebaseLogout
 	};
 
