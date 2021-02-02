@@ -1,23 +1,18 @@
-import fire from "./fire"
+import getToken from "./getToken";
 
 
 const getTokenHeader = async () => {
 
-	// Grab the current user
-	const user = fire.auth().currentUser;
-
-	// Get the current user's id token from firebase
-	const token = await user.getIdToken();
+	// Call getToken to get an id token from firebase
+	const token = await getToken();
 
 	// Add token to custom header
-	const tokenHeader = {
+	return {
 		headers: {
 			"Content-Type": "application/json",
 			Authorization: `Bearer ${token}`,
-		},
+		}
 	};
-
-	return tokenHeader;
 
 }
 
