@@ -8,7 +8,7 @@ const controller = require("../controllers/db-controller");
 router.route("/api/:dbcollection/:fireid?")
 
 	// First check for currentUser in the request. If not there the request hasn't been through
-	// the authorization process.
+	// the authorization process. If present, pass to the next route.
 	.all(function (req, res, next) {
 		if (req.currentUser) {
 			console.log("Authenticated");
@@ -19,13 +19,25 @@ router.route("/api/:dbcollection/:fireid?")
 		}
 	})
 
-	// If ?id= query is present this is the document id.
+	// Inject the users firebase id into req.query so only own documents are returned.
+	// If ?id= query is present this is the document id so call a different function.
 	.get(function (req, res) {
-		if (req.query.id) { controller.getDocumentById(req, res) }
-		else { controller.getDocuments(req, res) }
+		req.query.fireUid = req.currentUser.uid;
+		if (req.query.id) {
+			controller.getDocumentById(req, res);
+		}
+		else {
+			controller.getDocuments(req, res);
+		}
 	})
 
-	.post(controller.createDocument)
+	// Inject the users firebase id into req.body so this value will be added on creation.
+	.post(function (req, res) {
+		req.body.fireUid = req.currentUser.uid;
+		controller.createDocument(req, res);
+	})
+
+	// The document id is passed to these so no need to do anything except call the functions.
 	.put(controller.updateDocument)
 	.delete(controller.deleteDocument);
 

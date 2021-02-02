@@ -2,10 +2,12 @@ const dbModels = require("../models/dbModels");
 
 // db query functions
 
+// Get requests have had the firebase uid added to req.query before they
+// get here so searches will only return documents matching the user's id.
 function getDocuments(req, res) {
 
 	dbModels[req.params.dbcollection]
-		.find({ fireUid: req.params.fireid})
+		.find(req.query)
 		.then(dbModel => res.json(dbModel))
 		.catch(err => res.status(422).json(err));
 
@@ -20,6 +22,7 @@ function getDocumentById(req, res) {
 
 }
 
+// Post requests have had firebase uid added to req.body so it will be saved with the document.
 function createDocument(req, res) {
 
 	dbModels[req.params.dbcollection]
@@ -37,7 +40,6 @@ function updateDocument(req, res) {
 		.catch(err => res.status(422).json(err));
 
 }
-
 
 async function deleteDocument(req, res) {
 
