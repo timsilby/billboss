@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import UserAccountForm from "../components/UserAccountForm";
+import SignupForm from "../components/SignupForm";
 import { useAuth } from "../utils/useAuth";
 
 
@@ -8,30 +8,32 @@ const Signup = () => {
 	const auth = useAuth();
 	const history = useHistory();
 
-	const handleSubmit = (event) => {
+	// Submit signup form
+	const handleSubmit = async (event) => {
 
-		event.preventDefault();
+		// Grab form values
+		const userData = {
+			displayName: event.target.displayName.value.trim(),
+			email: event.target.email.value.trim(),
+			password: event.target.password.value.trim()
+		}
 
-		// Get values from form
-		const email = event.target.email.value;
-		const password = event.target.password.value;
+		// Try registering the user. If successful, get the new uid from Firebase and
+		// create a user entry in the database.
+		try {
 
-		console.log(`submitted email: ${email} password: ${password}`);
 
-		auth.firebaseLogin(email, password)
-			.then(() => {
-				console.log(auth.user);
-				history.push("/dashboard");
-			})
-			.catch(err => console.error(err))
+		}
+		catch (error) {
+
+		}
 
 	}
-
 
 	return (
 		<div>
 			<h2>Signup</h2>
-			<UserAccountForm handleSubmit={handleSubmit} />
+			<SignupForm handleSubmit={handleSubmit} />
 		</div>
 	);
 }
