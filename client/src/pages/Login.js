@@ -1,5 +1,5 @@
 import { useHistory, useLocation } from "react-router-dom";
-import UserAccountForm from "../components/UserAccountForm";
+import LoginForm from "../components/LoginForm";
 import { useAuth } from "../utils/useAuth";
 
 
@@ -21,8 +21,8 @@ const Login = () => {
 		event.preventDefault();
 
 		// Get values from form
-		const email = event.target.email.value;
-		const password = event.target.password.value;
+		const email = event.target.email.value.trim();
+		const password = event.target.password.value.trim();
 
 		// Call the firebaseLogin function from useAuth.
 		auth.firebaseLogin(email, password)
@@ -37,9 +37,10 @@ const Login = () => {
 	return (
 		<div>
 			<h2>Login</h2>
-			<UserAccountForm handleSubmit={handleSubmit} />
+			<LoginForm handleSubmit={handleSubmit} />
 		</div>
 	);
+
 }
 
 export default Login;
