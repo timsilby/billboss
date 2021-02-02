@@ -23,7 +23,9 @@ const Signup = () => {
 		// Try registering the user.
 		try {
 
-			await auth.firebaseSignup(userData);
+			const user = await auth.firebaseSignup(userData);
+			console.log("signup");
+			console.log(user);
 			history.push("/dashboard");
 		}
 		catch (error) {

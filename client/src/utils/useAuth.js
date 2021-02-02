@@ -34,15 +34,15 @@ function useProvideAuth() {
 	};
 
 	// Firebase create user function
-	const firebaseSignup = (userData) => {
-		return fire
+	const firebaseSignup = async (userData) => {
+		const res = await fire
 			.auth()
-			.createUserWithEmailAndPassword(userData.email, userData.password)
-			.then(res => {
-				setUser(res.user);
-				res.user.updateProfile({ displayName: userData.displayName })
-				return res.user;
-			});
+			.createUserWithEmailAndPassword(userData.email, userData.password);
+		await res.user.updateProfile({ displayName: userData.displayName });
+		console.log("signup");
+		console.log(res.user);
+		setUser(res.user);
+		return res.user;
 	};
 
 	// Firebase logout function
@@ -56,7 +56,7 @@ function useProvideAuth() {
 			});
 	};
 
-	// Set up useEffect hook to get currently logged in user on mount.
+	// Subscribe to user auth.
 	useEffect(() => {
 		const unsubscribe = fire.auth().onAuthStateChanged(user => {
 			if (user) { setUser(user); }

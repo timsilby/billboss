@@ -1,8 +1,11 @@
 import { useAuth } from "../utils/useAuth";
+import UserHeader from "./UserHeader";
 
 const Navbar = () => {
 
 	const auth = useAuth();
+	console.log("navbar");
+	console.log(auth.user);
 
 	return (
 		<div>

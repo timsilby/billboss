@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
 import apiRequest from "../utils/apiRequest";
-// import { useAuth } from "../utils/useAuth"
+import { useAuth } from "../utils/useAuth"
 
 
 const Dashboard = () => {
 
 	const [data, setData] = useState();
-	// const auth = useAuth();
+	const auth = useAuth();
 	// const fireUid = auth.user.uid;
 
 // 	const doc = {
 // 		"title": "Food",
 // 		"amount": 120,
 // }
+
+	console.log("dashboard");
+	console.log(auth.user);
 
 	useEffect(() => {
 

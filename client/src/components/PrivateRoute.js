@@ -6,17 +6,19 @@ import { useAuth } from "../utils/useAuth";
 const PrivateRoute = ({ children, ...rest }) => {
 
 	const auth = useAuth();
+	console.log("private route");
+	console.log(auth.user);
 
 	return (
 		<Route {...rest} render={({ location }) => {
-			return auth.user
+			return auth.user === false
 				?
-				children
-				:
 				<Redirect to={{
 					pathname: "/login",
 					state: { referrer: location }
 				}}/>
+				:
+				children
 		}}>
 		</Route>
 	);
