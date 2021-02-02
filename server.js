@@ -3,7 +3,6 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
-const cors = require("cors");
 const routes = require("./routes/all-routes");
 const verifyToken = require("./utils/verifyToken");
 
