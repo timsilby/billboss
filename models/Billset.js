@@ -8,6 +8,10 @@ const billsetSchema = new Schema({
 		required: true,
 		trim: true
 	},
+	note: {
+		type: String,
+		trim: true
+	},
 	startDate: {
 		type: Date,
 		default: Date.now,
@@ -29,8 +33,9 @@ const billsetSchema = new Schema({
 		type: Number,
 		required: true
 	},
-	paid: {
+	automatic: {
 		type: Boolean,
+		required: true,
 		default: false
 	},
 	active: {

@@ -8,6 +8,10 @@ const billSchema = new Schema({
 		required: true,
 		trim: true
 	},
+	note: {
+		type: String,
+		trim: true
+	},
 	dueDate: {
 		type: Date,
 		default: Date.now,
