@@ -1,5 +1,4 @@
 import { useAuth } from "../utils/useAuth";
-import UserHeader from "./UserHeader";
 
 const Navbar = () => {
 
@@ -9,7 +8,7 @@ const Navbar = () => {
 
 	return (
 		<div>
-			<h1>{auth.user.displayName}</h1>
+			<h1>{auth.user ? auth.user.displayName : "No one"}</h1>
 			<button onClick={auth.firebaseLogout}>Log out</button>
 		</div>
 	);
