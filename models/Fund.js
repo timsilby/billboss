@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const accountSchema = new Schema({
+const fundSchema = new Schema({
 
 	startBalance: {
 		type: Number,
@@ -14,6 +14,6 @@ const accountSchema = new Schema({
 
 });
 
-const Fund = mongoose.model("Account", accountSchema);
+const Fund = mongoose.model("Fund", fundSchema);
 
 module.exports = Fund;
