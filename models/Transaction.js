@@ -20,7 +20,7 @@ const transactionSchema = new Schema({
 		required: true
 	},
 	billId: Schema.ObjectId,
-	accountId: {
+	fundId: {
 		type: Schema.ObjectId,
 		required: true
 	},
