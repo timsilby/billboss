@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import apiRequest from "../utils/apiRequest";
-import { useAuth } from "../utils/useAuth"
+import { useAuth } from "../utils/useAuth";
+import Navbar from "../components/Navbar";
 
 
 const Dashboard = () => {
@@ -36,6 +37,7 @@ const Dashboard = () => {
 
 	return (
 		<div>
+			<Navbar />
 			<h1>Dashboard</h1>
 			<button onClick={dosomething}>Do something</button>
 			{data}

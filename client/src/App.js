@@ -1,25 +1,19 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ProvideAuth } from "./utils/useAuth";
 import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup"
-import Home from "./pages/Home";
+import Signup from "./components/Landing/Signup"
+import Landing from "./components/Landing/Landing";
 import Account from "./pages/Account";
-import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
 
 
 function App() {
 	return (
 		<ProvideAuth>
-			<Navbar />
 			<Router>
 				<Switch>
 					<Route path="/signup">
 						<Signup />
-					</Route>
-					<Route path="/login">
-						<Login />
 					</Route>
 					<PrivateRoute path="/dashboard">
 						<Dashboard />
@@ -28,7 +22,7 @@ function App() {
 						<Account />
 					</PrivateRoute>
 					<Route path="/">
-						<Home />
+						<Landing />
 					</Route>
 				</Switch>
 			</Router>
