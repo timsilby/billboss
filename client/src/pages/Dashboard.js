@@ -1,14 +1,19 @@
 import { useState, useEffect } from "react";
 import apiRequest from "../utils/apiRequest";
 import { useAuth } from "../utils/useAuth";
-import Navbar from "../components/Navbar";
-
+import MenuAppbar from "../components/MenuAppbar";
+import MenuDrawer from "../components/MenuDrawer";
 
 const Dashboard = () => {
 
 	const [data, setData] = useState();
 	const auth = useAuth();
-	// const fireUid = auth.user.uid;
+	const [mobileOpen, setMobileOpen] = useState(false);
+
+	const handleDrawerToggle = () => {
+		setMobileOpen(!mobileOpen);
+	};
+
 
 // 	const doc = {
 // 		"title": "Food",
@@ -37,7 +42,8 @@ const Dashboard = () => {
 
 	return (
 		<div>
-			<Navbar />
+			<MenuAppbar handleDrawerToggle={handleDrawerToggle} />
+			<MenuDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
 			<h1>Dashboard</h1>
 			<button onClick={dosomething}>Do something</button>
 			{data}

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { useAuth } from "../utils/useAuth";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -11,10 +11,10 @@ import Menu from "@material-ui/core/Menu";
 import Divider from "@material-ui/core/Divider";
 
 
-const MenuAppbar = () => {
+function MenuAppbar( {handleDrawerToggle} ) {
 
 
-	const [anchorEl, setAnchorEl] = React.useState(null);
+	const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);
 	const auth = useAuth();
 
@@ -36,7 +36,11 @@ const MenuAppbar = () => {
 		<div>
 			<AppBar position="static">
 				<Toolbar>
-					<IconButton edge="start" aria-label="menu">
+					<IconButton
+						edge="start"
+						aria-label="menu"
+						onClick={handleDrawerToggle}
+					>
 						<MenuSharpIcon />
 					</IconButton>
 					<Typography variant="h6" component="h1">
@@ -55,7 +59,7 @@ const MenuAppbar = () => {
 								id="user-menu"
 								anchorEl={anchorEl}
 								anchorOrigin={{
-									vertical: "bottom",
+									vertical: "top",
 									horizontal: "left",
 								}}
 								keepMounted
