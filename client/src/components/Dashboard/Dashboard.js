@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import apiRequest from "../utils/apiRequest";
-import { useAuth } from "../utils/useAuth";
-import MenuAppbar from "../components/MenuAppbar";
-import MenuDrawer from "../components/MenuDrawer";
+import apiRequest from "../../utils/apiRequest";
+import { useAuth } from "../../utils/useAuth";
+import AppbarDrawer from "../AppbarDrawer";
 
 const Dashboard = () => {
 
@@ -10,22 +9,8 @@ const Dashboard = () => {
 	const auth = useAuth();
 	const [mobileOpen, setMobileOpen] = useState(false);
 
-	const handleDrawerToggle = () => {
-		setMobileOpen(!mobileOpen);
-	};
-
-
-// 	const doc = {
-// 		"title": "Food",
-// 		"amount": 120,
-// }
-
 	console.log("dashboard");
 	console.log(auth.user);
-
-	useEffect(() => {
-
-	}, [])
 
 
 	const dosomething = async () => {
@@ -39,11 +24,14 @@ const Dashboard = () => {
 
 	}
 
+	useEffect(() => {
+
+	}, [])
+
 
 	return (
 		<div>
-			<MenuAppbar handleDrawerToggle={handleDrawerToggle} />
-			<MenuDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
+			<AppbarDrawer />
 			<h1>Dashboard</h1>
 			<button onClick={dosomething}>Do something</button>
 			{data}
