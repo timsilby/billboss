@@ -7,8 +7,6 @@ const Dashboard = () => {
 
 	const [data, setData] = useState();
 	const auth = useAuth();
-	const [mobileOpen, setMobileOpen] = useState(false);
-
 	console.log("dashboard");
 	console.log(auth.user);
 

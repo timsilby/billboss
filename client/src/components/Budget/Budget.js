@@ -5,13 +5,6 @@ import AppbarDrawer from "../AppbarDrawer";
 const Budget = () => {
 
 	const auth = useAuth();
-	const [mobileOpen, setMobileOpen] = useState(false);
-
-	const handleDrawerToggle = () => {
-		setMobileOpen(!mobileOpen);
-	};
-
-
 	console.log("budget");
 	console.log(auth.user);
 
