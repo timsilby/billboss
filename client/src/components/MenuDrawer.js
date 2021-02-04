@@ -17,28 +17,24 @@ function MenuDrawer(props) {
 				<ListItem button key="dashboard">
 					<ListItemIcon></ListItemIcon>
 					<ListItemText
-						inset={true}
 						primary="Dashboard"
 					/>
 				</ListItem>
 				<ListItem button key="bills">
 					<ListItemIcon></ListItemIcon>
 					<ListItemText
-						inset={true}
 						primary="Dashboard"
 					/>
 				</ListItem>
 				<ListItem button key="budget">
 					<ListItemIcon></ListItemIcon>
 					<ListItemText
-						inset={true}
 						primary="Dashboard"
 					/>
 				</ListItem>
 				<ListItem button key="funds">
 					<ListItemIcon></ListItemIcon>
 					<ListItemText
-						inset={true}
 						primary="Dashboard"
 					/>
 				</ListItem>

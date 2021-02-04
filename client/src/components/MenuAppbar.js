@@ -11,8 +11,7 @@ import Menu from "@material-ui/core/Menu";
 import Divider from "@material-ui/core/Divider";
 
 
-function MenuAppbar( {handleDrawerToggle} ) {
-
+function MenuAppbar({ handleDrawerToggle }) {
 
 	const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);
@@ -46,21 +45,22 @@ function MenuAppbar( {handleDrawerToggle} ) {
 					<Typography variant="h6" component="h1">
 						Placeholder
 					</Typography>
-						<div>
-							<IconButton
-								aria-label="User Account"
-								aria-controls="user-menu"
-								aria-haspopup="true"
-								onClick={handleMenu}
-							>
-								<AccountBoxSharp />
-							</IconButton>
-							<Menu
+					<div>
+						<IconButton
+							aria-label="User Account"
+							aria-controls="user-menu"
+							aria-haspopup="true"
+							onClick={handleMenu}
+						>
+							<AccountBoxSharp />
+						</IconButton>
+						<Menu
 								id="user-menu"
 								anchorEl={anchorEl}
+								getContentAnchorEl={null}
 								anchorOrigin={{
-									vertical: "top",
-									horizontal: "left",
+									vertical: "bottom",
+									horizontal: "right",
 								}}
 								keepMounted
 								transformOrigin={{
@@ -77,7 +77,7 @@ function MenuAppbar( {handleDrawerToggle} ) {
 								<MenuItem onClick={handleClose}>Profile</MenuItem>
 								<MenuItem onClick={handleLogout}>Logout</MenuItem>
 							</Menu>
-						</div>
+					</div>
 				</Toolbar>
 			</AppBar>
 		</div>
