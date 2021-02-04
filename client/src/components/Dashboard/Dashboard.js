@@ -1,26 +1,14 @@
 import { useState, useEffect } from "react";
-import apiRequest from "../utils/apiRequest";
-import { useAuth } from "../utils/useAuth";
-import Navbar from "../components/Navbar";
-
+import apiRequest from "../../utils/apiRequest";
+import { useAuth } from "../../utils/useAuth";
+import AppbarDrawer from "../AppbarDrawer";
 
 const Dashboard = () => {
 
 	const [data, setData] = useState();
 	const auth = useAuth();
-	// const fireUid = auth.user.uid;
-
-// 	const doc = {
-// 		"title": "Food",
-// 		"amount": 120,
-// }
-
 	console.log("dashboard");
 	console.log(auth.user);
-
-	useEffect(() => {
-
-	}, [])
 
 
 	const dosomething = async () => {
@@ -34,10 +22,14 @@ const Dashboard = () => {
 
 	}
 
+	useEffect(() => {
+
+	}, [])
+
 
 	return (
 		<div>
-			<Navbar />
+			<AppbarDrawer />
 			<h1>Dashboard</h1>
 			<button onClick={dosomething}>Do something</button>
 			{data}
