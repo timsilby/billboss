@@ -14,7 +14,7 @@ const PrivateRoute = ({ children, ...rest }) => {
 			return auth.user === false
 				?
 				<Redirect to={{
-					pathname: "/login",
+					pathname: "/",
 					state: { referrer: location }
 				}}/>
 				:
