@@ -8,7 +8,7 @@ const contributionSchema = new Schema({
 		default: Date.now,
 		required: true
 	},
-	note: {
+	notes: {
 		type: String,
 		trim: true
 	},

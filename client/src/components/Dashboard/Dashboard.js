@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import apiRequest from "../../utils/apiRequest";
 import { useAuth } from "../../utils/useAuth";
-import AppbarDrawer from "../AppbarDrawer";
+import AppbarDrawer from "../AppBarDrawer/AppbarDrawer";
 
 const Dashboard = () => {
 

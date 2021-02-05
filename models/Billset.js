@@ -8,7 +8,7 @@ const billsetSchema = new Schema({
 		required: true,
 		trim: true
 	},
-	note: {
+	notes: {
 		type: String,
 		trim: true
 	},
