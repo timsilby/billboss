@@ -8,7 +8,6 @@ import AddBillDialog from "./AddBillDialog";
 const Bills = () => {
 
 	const [dialogOpen, setDialogOpen] = useState(false);
-	// let dialogOpen = false;
 
 	const auth = useAuth();
 	console.log("bills");
