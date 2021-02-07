@@ -12,8 +12,8 @@ const depositSetSchema = new Schema({
 		type: String,
 		trim: true
 	},
-	depositDate: {
-		type: String,
+	date: {
+		type: Date,
 		required: true
 	},
 	recursEvery: {

@@ -12,8 +12,8 @@ const billsetSchema = new Schema({
 		type: String,
 		trim: true
 	},
-	dueDate: {
-		type: String,
+	date: {
+		type: Date,
 		required: true
 	},
 	recursEvery: {

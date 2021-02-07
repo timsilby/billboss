@@ -8,8 +8,8 @@ const depositSchema = new Schema({
 		required: true,
 		trim: true
 	},
-	depositDate: {
-		type: String,
+	date: {
+		type: Date,
 		required: true
 	},
 	notes: {
