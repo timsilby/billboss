@@ -5,6 +5,7 @@ import Landing from "../components/Landing/Landing";
 import Bills from "../components/Bills/Bills";
 import Budget from "../components/Budget/Budget";
 import Reports from "../components/Reports/Reports";
+import Signup from "./Landing/Signup";
 
 
 function Routes() {
@@ -30,6 +31,9 @@ function Routes() {
 				<Route exact path="/reports">
 					{user ? <Reports /> : <Landing />}
 					{/* <Reports /> */}
+				</Route>
+				<Route exact path="/signup">
+					<Signup />
 				</Route>
 				<Route path="/">
 					<Landing />
