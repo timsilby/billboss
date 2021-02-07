@@ -1,24 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "../../utils/useAuth";
-import AppbarDrawer from "../AppbarDrawer";
+import Button from "@material-ui/core/Button";
+import AppbarDrawer from "../AppBarDrawer/AppbarDrawer";
+import AddBillDialog from "./AddBillDialog";
+
 
 const Bills = () => {
+
+	const [dialogOpen, setDialogOpen] = useState(false);
 
 	const auth = useAuth();
 	console.log("bills");
 	console.log(auth.user);
 
-	useEffect(() => {
-
-	}, [])
-
-
+	const toggleDialog = () => setDialogOpen(!dialogOpen);
 
 	return (
-		<div>
-			<AppbarDrawer />
+
+		<AppbarDrawer>
+
 			<h1>Bills</h1>
-		</div>
+			<AddBillDialog open={dialogOpen} toggleDialog={toggleDialog} />
+			<Button onClick={toggleDialog}>Add Bill</Button>
+
+		</AppbarDrawer>
+
 	);
 
 }

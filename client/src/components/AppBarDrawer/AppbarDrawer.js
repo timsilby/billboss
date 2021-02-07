@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "../utils/useAuth";
+import { useAuth } from "../../utils/useAuth";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -11,11 +11,8 @@ import Menu from "@material-ui/core/Menu";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import DrawerMenu from "./DrawerMenu";
 
 const drawerWidth = 240;
 
@@ -48,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
 	content: {
 		flexGrow: 1,
 		padding: theme.spacing(3),
+		[theme.breakpoints.up('sm')]: {
+			width: `calc(100% - ${drawerWidth}px)`,
+			marginLeft: drawerWidth,
+		}
 	},
 }));
 
@@ -55,13 +56,11 @@ function AppbarDrawer(props) {
 
 	const { window } = props;
 	const classes = useStyles();
-	const theme = useTheme();
 	const [anchorEl, setAnchorEl] = useState(null);
 	const [mobileOpen, setMobileOpen] = useState(false);
 	const open = Boolean(anchorEl);
 
 	const auth = useAuth();
-	// const user = auth.user;
 
 	const handleMenu = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -79,63 +78,6 @@ function AppbarDrawer(props) {
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
 	};
-
-	const drawer = (
-		<div>
-			<div className={classes.toolbar}></div>
-
-			<Typography variant="h6" component="span">
-				BillBoss
-			</Typography>
-
-			<Divider />
-
-			<List>
-				<ListItem
-					key="dashboard"
-					component="a"
-					button
-					href="/dashboard"
-				>
-					<ListItemIcon></ListItemIcon>
-					<ListItemText primary="Dashboard" />
-				</ListItem>
-
-				<ListItem
-					key="bills"
-					component="a"
-					button
-					href="/bills"
-				>
-					<ListItemIcon></ListItemIcon>
-					<ListItemText primary="Bills" />
-				</ListItem>
-
-				<ListItem
-					key="budget"
-					component="a"
-					button
-					href="/budget"
-				>
-					<ListItemIcon></ListItemIcon>
-					<ListItemText primary="Budget" />
-				</ListItem>
-
-				<ListItem
-					key="reports"
-					component="a"
-					button
-					href="/reports"
-				>
-					<ListItemIcon></ListItemIcon>
-					<ListItemText primary="Reports" />
-				</ListItem>
-			</List>
-
-			<Divider />
-
-		</div>
-	);
 
 	const container = window !== undefined ? () => window().document.body : undefined;
 
@@ -207,7 +149,8 @@ function AppbarDrawer(props) {
 							paper: classes.drawerPaper
 						}}
 					>
-						{drawer}
+						{/* {drawer} */}
+						<DrawerMenu />
 					</Drawer>
 				</Hidden>
 				<Hidden xsDown>
@@ -218,11 +161,40 @@ function AppbarDrawer(props) {
 						variant="permanent"
 						open
 					>
-						{drawer}
+						{/* {drawer} */}
+						<DrawerMenu />
 					</Drawer>
 				</Hidden>
 			</nav>
 
+			<main className={classes.content}>
+				{props.children}
+				<Typography paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
+          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
+          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
+          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
+          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
+          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
+          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
+          donec massa sapien faucibus et molestie ac.
+        </Typography>
+				<Typography paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
+          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
+          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
+          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
+          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
+          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
+          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
+          donec massa sapien faucibus et molestie ac.
+        </Typography>
+
+			</main>
 		</div>
 
 	);

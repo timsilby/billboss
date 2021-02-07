@@ -26,6 +26,7 @@
   "homepage": "https://bill-boss.herokuapp.com/",
   "dependencies": {
     "compression": "^1.7.4",
+    "dayjs": "^1.10.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "firebase-admin": "^9.4.2",

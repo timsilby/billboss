@@ -1,44 +1,43 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const contributionsetSchema = new Schema({
+const depositSetSchema = new Schema({
 
 	title: {
 		type: String,
 		required: true,
 		trim: true
 	},
-	note: {
+	notes: {
 		type: String,
 		trim: true
 	},
-	startDate: {
-		type: Date,
-		default: Date.now,
+	depositDate: {
+		type: String,
 		required: true
 	},
-	recurEvery: {
+	recursEvery: {
 		type: Number,
 		required: true,
 		default: 1
 	},
-	recurringUnit: {
+	recurringPeriod: {
 		type: String,
 		required: true,
 		trim: true,
 		lowercase: true,
-		enum: ["day(s)", "week(s)", "month(s)", "year(s)"]
+		enum: ["day", "week", "month", "year"]
 	},
 	amount: {
 		type: Number,
 		required: true
 	},
-	automatic: {
+	isAutomatic: {
 		type: Boolean,
 		required: true,
 		default: false
 	},
-	active: {
+	isActive: {
 		type: Boolean,
 		default: true,
 		required: true
@@ -49,6 +48,6 @@ const contributionsetSchema = new Schema({
 	}
 });
 
-const Contributionset = mongoose.model("Contributionset", contributionsetSchema);
+const Depositset = mongoose.model("Depositset", depositSetSchema);
 
-module.exports = Contributionset;
+module.exports = Depositset;
