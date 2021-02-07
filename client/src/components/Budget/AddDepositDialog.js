@@ -52,11 +52,13 @@ const AddDepositDialog = ({ open, toggleDialog }) => {
 			if (values.isRecurring) {
 				const res = await addRecurringDeposit(values);
 				toggleDialog();
+				formik.resetForm();
 				return res;
 			}
 
 			const res = await apiRequest.createEntry("api/deposits", { ...values, paid: true });
 			toggleDialog();
+			formik.resetForm();
 			return res;
 
 		}

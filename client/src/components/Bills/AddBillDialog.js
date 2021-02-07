@@ -51,11 +51,13 @@ const AddBillDialog = ({ open, toggleDialog }) => {
 			if (values.isRecurring) {
 				const res = await addRecurringBill(values);
 				toggleDialog();
+				formik.resetForm();
 				return res;
 			}
 
 			const res = await apiRequest.createEntry("api/bills", values);
 			toggleDialog();
+			formik.resetForm();
 			return res;
 
 		}
