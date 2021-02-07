@@ -1,10 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const fundSchema = new Schema({
+const accountSchema = new Schema({
 
 	startBalance: {
 		type: Number,
+		required: true
+	},
+	currentBalance: {
+		type: String,
 		required: true
 	},
 	fireUid: {
@@ -14,6 +18,6 @@ const fundSchema = new Schema({
 
 });
 
-const Fund = mongoose.model("Fund", fundSchema);
+const Account = mongoose.model("Account", accountSchema);
 
-module.exports = Fund;
+module.exports = Account;
