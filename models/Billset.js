@@ -12,33 +12,32 @@ const billsetSchema = new Schema({
 		type: String,
 		trim: true
 	},
-	startDate: {
-		type: Date,
-		default: Date.now,
+	dueDate: {
+		type: String,
 		required: true
 	},
-	recurEvery: {
+	recursEvery: {
 		type: Number,
 		required: true,
 		default: 1
 	},
-	recurringUnit: {
+	recurringPeriod: {
 		type: String,
 		required: true,
 		trim: true,
 		lowercase: true,
-		enum: ["day(s)", "week(s)", "month(s)", "year(s)"]
+		enum: ["day", "week", "month", "year"]
 	},
 	amount: {
 		type: Number,
 		required: true
 	},
-	automatic: {
+	isAutomatic: {
 		type: Boolean,
 		required: true,
 		default: false
 	},
-	active: {
+	isActive: {
 		type: Boolean,
 		default: true,
 		required: true
@@ -47,6 +46,7 @@ const billsetSchema = new Schema({
 		type: String,
 		required: true
 	}
+
 });
 
 const Billset = mongoose.model("Billset", billsetSchema);

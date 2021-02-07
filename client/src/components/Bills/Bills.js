@@ -8,6 +8,7 @@ import AddBillDialog from "./AddBillDialog";
 const Bills = () => {
 
 	const [dialogOpen, setDialogOpen] = useState(false);
+	// let dialogOpen = false;
 
 	const auth = useAuth();
 	console.log("bills");
@@ -17,13 +18,10 @@ const Bills = () => {
 
 	return (
 
-		// Page content needs to be rendered inside the AppbarDrawer component so it
-		// displays properly with the appbar and menu.
-
 		<AppbarDrawer>
 
 			<h1>Bills</h1>
-			<AddBillDialog open={dialogOpen} handleClose={toggleAddBill} />
+			<AddBillDialog open={dialogOpen} toggleAddBill={toggleAddBill} />
 			<Button onClick={toggleAddBill}>Add Bill</Button>
 
 		</AppbarDrawer>

@@ -13,8 +13,7 @@ const billSchema = new Schema({
 		trim: true
 	},
 	dueDate: {
-		type: Date,
-		default: Date.now,
+		type: String,
 		required: true
 	},
 	amount: {
@@ -23,6 +22,11 @@ const billSchema = new Schema({
 	},
 	paid: {
 		type: Boolean,
+		default: false
+	},
+	isAutomatic: {
+		type: Boolean,
+		required: true,
 		default: false
 	},
 	billset: Schema.ObjectId,
