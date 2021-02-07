@@ -18,7 +18,7 @@ import { MuiPickersUtilsProvider, KeyboardDatePicker } from "@material-ui/picker
 import DayJsUtils from "@date-io/dayjs";
 
 
-const AddBillDialog = ({ open, toggleAddBill }) => {
+const AddBillDialog = ({ open, toggleDialog }) => {
 
 	const theme = useTheme();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -50,12 +50,12 @@ const AddBillDialog = ({ open, toggleAddBill }) => {
 
 			if (values.isRecurring) {
 				const res = await addRecurringBill(values);
-				toggleAddBill();
+				toggleDialog();
 				return res;
 			}
 
 			const res = await apiRequest.createEntry("api/bills", values);
-			toggleAddBill();
+			toggleDialog();
 			return res;
 
 		}
@@ -70,8 +70,8 @@ const AddBillDialog = ({ open, toggleAddBill }) => {
 			<Dialog
 				fullScreen={fullScreen}
 				open={open}
-				onClose={toggleAddBill}
-				onEscapeKeyDown={toggleAddBill}
+				onClose={toggleDialog}
+				onEscapeKeyDown={toggleDialog}
 				aria-labelledby="add-bill-dialog-title"
 			>
 				<DialogTitle id="add-bill-dialog-title">{"New Bill"}</DialogTitle>
@@ -82,9 +82,9 @@ const AddBillDialog = ({ open, toggleAddBill }) => {
 							autoFocus
 							id="title"
 							name="title"
-							label="Bill Name"
+							label="Title"
 							type="text"
-							value={formik.values.billName}
+							value={formik.values.title}
 							onChange={formik.handleChange}
 							fullWidth
 						/>
@@ -171,7 +171,7 @@ const AddBillDialog = ({ open, toggleAddBill }) => {
 					<Button type="submit" onClick={formik.handleSubmit}>
 						Add Bill
           			</Button>
-					<Button onClick={toggleAddBill}>
+					<Button onClick={toggleDialog}>
 						Cancel
           			</Button>
 				</DialogActions>

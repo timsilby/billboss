@@ -13,15 +13,15 @@ const Bills = () => {
 	console.log("bills");
 	console.log(auth.user);
 
-	const toggleAddBill = () => setDialogOpen(!dialogOpen);
+	const toggleDialog = () => setDialogOpen(!dialogOpen);
 
 	return (
 
 		<AppbarDrawer>
 
 			<h1>Bills</h1>
-			<AddBillDialog open={dialogOpen} toggleAddBill={toggleAddBill} />
-			<Button onClick={toggleAddBill}>Add Bill</Button>
+			<AddBillDialog open={dialogOpen} toggleDialog={toggleDialog} />
+			<Button onClick={toggleDialog}>Add Bill</Button>
 
 		</AppbarDrawer>
 
