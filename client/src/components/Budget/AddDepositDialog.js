@@ -38,7 +38,7 @@ const AddDepositDialog = ({ open, toggleDialog }) => {
 		initialValues: {
 			title: "",
 			notes: "",
-			depositDate: null,
+			date: null,
 			isRecurring: false,
 			recursEvery: 1,
 			recurringPeriod: "day",
@@ -105,8 +105,8 @@ const AddDepositDialog = ({ open, toggleDialog }) => {
 								autoOk
 								clearable
 								disablePast
-								value={formik.values.depositDate}
-								onChange={selectedDate => formik.setFieldValue("depositDate", selectedDate)}
+								value={formik.values.date}
+								onChange={selectedDate => formik.setFieldValue("date", selectedDate.startOf("day"))}
 								placeholder="DD/MM/YYYY"
 								format="DD/MM/YYYY"
 								showTodayButton

@@ -38,7 +38,7 @@ const AddBillDialog = ({ open, toggleDialog }) => {
 		initialValues: {
 			title: "",
 			notes: "",
-			dueDate: null,
+			date: null,
 			isRecurring: false,
 			recursEvery: 1,
 			recurringPeriod: "day",
@@ -104,8 +104,8 @@ const AddBillDialog = ({ open, toggleDialog }) => {
 								autoOk
 								clearable
 								disablePast
-								value={formik.values.dueDate}
-								onChange={selectedDate => formik.setFieldValue("dueDate", selectedDate)}
+								value={formik.values.date}
+								onChange={selectedDate => formik.setFieldValue("date", selectedDate.startOf("day"))}
 								placeholder="DD/MM/YYYY"
 								format="DD/MM/YYYY"
 								showTodayButton
