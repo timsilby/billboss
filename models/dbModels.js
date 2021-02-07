@@ -3,8 +3,8 @@ const dbModels = {
 
 	bills: require("./Bill"),
 	billsets: require("./Billset"),
-	contributions: require("./Contribution"),
-	contributionsets: require("./Contributionset"),
+	deposits: require("./Deposit"),
+	depositsets: require("./Depositset"),
 	account: require("./Account"),
 	transactions: require("./Transaction"),
 
