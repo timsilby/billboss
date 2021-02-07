@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "../../utils/useAuth";
 import Button from "@material-ui/core/Button";
 import AppbarDrawer from "../AppBarDrawer/AppbarDrawer";
