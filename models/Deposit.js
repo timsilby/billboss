@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 const depositSchema = new Schema({
 
+	title: {
+		type: String,
+		required: true,
+		trim: true
+	},
 	depositDate: {
 		type: Date,
 		default: Date.now,
