@@ -29,6 +29,11 @@ const billSchema = new Schema({
 		required: true,
 		default: false
 	},
+	isRecurring: {
+		type: Boolean,
+		required: true,
+		default: false
+	},
 	billset: Schema.ObjectId,
 	fireUid: {
 		type: String,
