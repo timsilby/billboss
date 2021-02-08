@@ -22,12 +22,24 @@ router.route("/api/:dbcollection/:fireid?")
 	// Inject the users firebase id into req.query so only own documents are returned.
 	// If ?id= query is present this is the document id so call a different function.
 	.get(function (req, res) {
+
 		req.query.fireUid = req.currentUser.uid;
+
 		if (req.query.id) {
 			controller.getDocumentById(req, res);
 		}
 		else {
+
+			// Add the start date to the query and also return unpaid bills regardless of date
+			if (req.query.date) {
+				// const startDate = new Date(req.query.date);
+				// req.query.date = { $gte: req.query.date };
+				req.query.$or = [{ date: { $gte: req.query.date } }, { paid: false }];
+				delete req.query.date;
+			}
+			console.log(req.query);
 			controller.getDocuments(req, res);
+
 		}
 	})
 
