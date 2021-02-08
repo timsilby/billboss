@@ -21,6 +21,7 @@ const bills = [
 		amount: 95.50,
 		paid: false,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7cd42081f135f0b5e97e")
 	},
 	{
@@ -28,8 +29,9 @@ const bills = [
 		notes: "Mobile phone",
 		date: new Date("2021-01-16T14:00:00.000Z"),
 		amount: 95.50,
-		paid: true,
+		paid: false,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7cd42081f135f0b5e97e")
 	},
 	{
@@ -39,6 +41,7 @@ const bills = [
 		amount: 95.50,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7cd42081f135f0b5e97e")
 	},
 	{
@@ -48,6 +51,7 @@ const bills = [
 		amount: 95.50,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7cd42081f135f0b5e97e")
 	},
 	{
@@ -57,6 +61,7 @@ const bills = [
 		amount: 95.50,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7cd42081f135f0b5e97e")
 	},
 	{
@@ -66,6 +71,7 @@ const bills = [
 		amount: 95.50,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7cd42081f135f0b5e97e")
 	},
 	{
@@ -75,6 +81,7 @@ const bills = [
 		amount: 95.50,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7cd42081f135f0b5e97e")
 	},
 	{
@@ -84,6 +91,7 @@ const bills = [
 		amount: 500,
 		paid: false,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7df7fb31ce4bf83d69c1")
 	},
 	{
@@ -93,6 +101,7 @@ const bills = [
 		amount: 500,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7df7fb31ce4bf83d69c1")
 	},
 	{
@@ -102,6 +111,7 @@ const bills = [
 		amount: 500,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7df7fb31ce4bf83d69c1")
 	},
 	{
@@ -111,6 +121,7 @@ const bills = [
 		amount: 75,
 		paid: false,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e20fb31ce4bf83d69c3")
 	},
 	{
@@ -120,6 +131,7 @@ const bills = [
 		amount: 75,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e20fb31ce4bf83d69c3")
 	},
 	{
@@ -129,6 +141,7 @@ const bills = [
 		amount: 75,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e20fb31ce4bf83d69c3")
 	},
 	{
@@ -136,8 +149,9 @@ const bills = [
 		notes: "NBN bill",
 		date: new Date("2020-12-02T14:00:00.000Z"),
 		amount: 75,
-		paid: true,
+		paid: false,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e20fb31ce4bf83d69c3")
 	},
 	{
@@ -147,6 +161,7 @@ const bills = [
 		amount: 75,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e20fb31ce4bf83d69c3")
 	},
 	{
@@ -156,6 +171,7 @@ const bills = [
 		amount: 75,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e20fb31ce4bf83d69c3")
 	},
 	{
@@ -165,6 +181,7 @@ const bills = [
 		amount: 75,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e20fb31ce4bf83d69c3")
 	},
 	{
@@ -174,6 +191,7 @@ const bills = [
 		amount: 75,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e20fb31ce4bf83d69c3")
 	},
 	{
@@ -183,6 +201,7 @@ const bills = [
 		amount: 245,
 		paid: false,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -192,6 +211,7 @@ const bills = [
 		amount: 245,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -201,6 +221,7 @@ const bills = [
 		amount: 245,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -210,6 +231,7 @@ const bills = [
 		amount: 245,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -219,6 +241,7 @@ const bills = [
 		amount: 245,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -228,6 +251,7 @@ const bills = [
 		amount: 245,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -237,6 +261,7 @@ const bills = [
 		amount: 245,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -246,6 +271,7 @@ const bills = [
 		amount: 245,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -255,6 +281,7 @@ const bills = [
 		amount: 245,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -264,6 +291,7 @@ const bills = [
 		amount: 245,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -273,6 +301,7 @@ const bills = [
 		amount: 245,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -282,6 +311,7 @@ const bills = [
 		amount: 245,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -291,6 +321,7 @@ const bills = [
 		amount: 245,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
 	},
 	{
@@ -300,6 +331,7 @@ const bills = [
 		amount: 1200,
 		paid: false,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7d6b2081f135f0b5e980")
 	},
 	{
@@ -309,6 +341,7 @@ const bills = [
 		amount: 1200,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7d6b2081f135f0b5e980")
 	},
 	{
@@ -318,6 +351,7 @@ const bills = [
 		amount: 1200,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7d6b2081f135f0b5e980")
 	},
 	{
@@ -327,6 +361,7 @@ const bills = [
 		amount: 1200,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7d6b2081f135f0b5e980")
 	},
 	{
@@ -336,6 +371,7 @@ const bills = [
 		amount: 1200,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7d6b2081f135f0b5e980")
 	},
 	{
@@ -345,6 +381,7 @@ const bills = [
 		amount: 1200,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7d6b2081f135f0b5e980")
 	},
 	{
@@ -354,7 +391,32 @@ const bills = [
 		amount: 1200,
 		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7d6b2081f135f0b5e980")
+	},
+	{
+		title: "Car rego",
+		notes: "Subaru",
+		date: new Date("2021-03-11T14:00:00.000Z"),
+		amount: 650,
+		paid: false,
+		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+	},
+	{
+		title: "Contents Insurance",
+		notes: "",
+		date: new Date("2021-05-02T14:00:00.000Z"),
+		amount: 1329,
+		paid: false,
+		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+	},
+	{
+		title: "Library late fee",
+		notes: "",
+		date: new Date("2021-01-19T14:00:00.000Z"),
+		amount: 13,
+		paid: false,
+		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 	}
 ]
 
@@ -488,15 +550,15 @@ const deposits = [
 ]
 
 
-// dbModels.bills.collection.insertMany(bills)
-//   .then(data => {
-//     console.log(data.result.n + " records inserted!");
-//     process.exit(0);
-//   })
-//   .catch(err => {
-//     console.error(err);
-//     process.exit(1);
-//   });
+dbModels.bills.collection.insertMany(bills)
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
 
 // dbModels.deposits.collection.insertMany(deposits)
 //   .then(data => {
