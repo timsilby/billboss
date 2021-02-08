@@ -8,7 +8,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import Typography from "@material-ui/core/Typography";
 import RecurringBillTable from "./RecurringBillTable";
-import BillTable from "../Dashboard/BillTable";
+import BillTable from "./BillTable";
 
 
 dayjs.extend(utc);
