@@ -10,7 +10,6 @@ dayjs.extend(utc);
 
 const BillSummary = () => {
 
-	const [billsList, setBillsList] = useState([]);
 	const [upcomingBills, setUpcomingBills] = useState([]);
 	const [overdueBills, setOverdueBills] = useState([]);
 	const [recentBills, setRecentBills] = useState([]);
