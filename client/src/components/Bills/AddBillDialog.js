@@ -29,7 +29,7 @@ const AddBillDialog = ({ open, toggleDialog }) => {
 				console.log(res);
 
 				// Get resulting _id from billset and save the first bill to bills collection
-				return await apiRequest.createEntry("/api/bills", { ...data, billset: res.data._id });
+				return await apiRequest.createEntry("/api/bills", { ...data, isRecurring: true, billset: res.data._id });
 
 	}
 
