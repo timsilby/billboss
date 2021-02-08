@@ -400,6 +400,7 @@ const bills = [
 		date: new Date("2021-03-11T14:00:00.000Z"),
 		amount: 650,
 		paid: false,
+		isRecurring: false,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 	},
 	{
@@ -407,6 +408,7 @@ const bills = [
 		notes: "",
 		date: new Date("2021-05-02T14:00:00.000Z"),
 		amount: 1329,
+		isRecurring: false,
 		paid: false,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 	},
@@ -416,6 +418,7 @@ const bills = [
 		date: new Date("2021-01-19T14:00:00.000Z"),
 		amount: 13,
 		paid: false,
+		isRecurring: false,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 	}
 ]
