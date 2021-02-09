@@ -4,12 +4,12 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
 
-const ContributionCard = ({ contributions }) => {
+const ContributionCard = ({ contributions, cardTitle }) => {
 
 	return (
 
 		<Card>
-			<CardHeader title="Required Contributions"></CardHeader>
+			<CardHeader title={cardTitle}></CardHeader>
 			{contributions.map((contribution, index) => (
 				<CardContent key={index}>
 					<Typography>Weekly: {contribution.weekly.toFixed(2)}</Typography>
