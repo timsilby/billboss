@@ -428,7 +428,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2021-02-09T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: false
@@ -437,7 +437,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2021-01-26T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
@@ -446,7 +446,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2021-01-12T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
@@ -455,7 +455,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2020-12-29T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
@@ -464,7 +464,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2020-12-15T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
@@ -473,7 +473,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2020-12-01T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
@@ -482,7 +482,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2020-11-17T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
@@ -491,7 +491,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2020-11-03T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
@@ -500,7 +500,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2020-10-20T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
@@ -509,7 +509,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2020-10-06T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
@@ -518,7 +518,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2020-09-22T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
@@ -527,7 +527,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2020-09-08T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
@@ -536,7 +536,7 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2020-08-25T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
@@ -545,25 +545,41 @@ const deposits = [
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2020-08-11T14:00:00.000Z"),
-		amount: 645,
+		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		paid: true
 	}
 ]
 
+const account = [
+	{
+		startBalance: 500,
+		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+	}
+]
 
-dbModels.bills.collection.insertMany(bills)
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+// dbModels.bills.collection.insertMany(bills)
+//   .then(data => {
+//     console.log(data.result.n + " records inserted!");
+//     process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   });
 
 // dbModels.deposits.collection.insertMany(deposits)
+//   .then(data => {
+//     console.log(data.result.n + " records inserted!");
+//     process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   });
+
+// dbModels.accounts.collection.insertMany(account)
 //   .then(data => {
 //     console.log(data.result.n + " records inserted!");
 //     process.exit(0);
