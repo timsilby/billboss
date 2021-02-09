@@ -5,6 +5,7 @@ import utc from "dayjs/plugin/utc";
 import Typography from "@material-ui/core/Typography";
 import { calculateYearlyTotal, calculatePeriodicAmount } from "../../utils/calculations";
 import ContributionCard from "./ContributionCard";
+import BillTotalsTable from "./BillTotalsTable";
 
 dayjs.extend(utc);
 
@@ -47,6 +48,7 @@ const BudgetTotals = () => {
 
 		bills.data.forEach(entry => {
 			entry.yearlyTotal = entry.amount;
+			entry.periodicAmounts = calculatePeriodicAmount(entry.yearlyTotal);
 			allBillsArray.push(entry);
 		})
 
@@ -75,6 +77,8 @@ const BudgetTotals = () => {
 			<Typography variant="h6" component="h2">Contributions</Typography>
 			<ContributionCard contributions={requiredContributions} cardTitle={"Required Contributions"}/>
 			<ContributionCard contributions={currentContributions} cardTitle={"Current Contributions"}/>
+			<Typography variant="h6" component="h2">Bill Totals</Typography>
+			<BillTotalsTable bills={allBills}/>
 		</>
 
 	)
