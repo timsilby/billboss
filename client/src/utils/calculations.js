@@ -1,7 +1,7 @@
 
 
 
-export const getYearlyTotal = (amount, recursEvery, recurringPeriod) => {
+export const calculateYearlyTotal = (amount, recursEvery, recurringPeriod) => {
 
 	let yearlyTotal;
 
@@ -24,6 +24,20 @@ export const getYearlyTotal = (amount, recursEvery, recurringPeriod) => {
 	}
 
 	// Return the calculated total to two decimal places
-	return +yearlyTotal.toFixed(2);
+	return yearlyTotal;
+
+}
+
+
+export const calculatePeriodicAmount = (yearlyTotal) => {
+
+	const amounts = {};
+
+	amounts.monthly = yearlyTotal / 12;
+	amounts.fortnightly = (yearlyTotal / 365) * 14;
+	amounts.weekly = (yearlyTotal / 365) * 7;
+	amounts.daily = yearlyTotal / 365;
+
+	return amounts;
 
 }
