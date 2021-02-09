@@ -1,27 +1,29 @@
-import { useAuth } from "../../utils/useAuth";
 import dayjs from "dayjs";
+import minMax from "dayjs/plugin/minMax";
 import utc from "dayjs/plugin/utc";
 import AppbarDrawer from "../AppBarDrawer/AppbarDrawer";
-import BillSummary from "../Bills/BillSummary";
+import BillSummary from "./DashboardBillsCard";
 import Typography from "@material-ui/core/Typography";
+import DashboardAccountCard from "./DashboardAccountCard";
 
-dayjs.extend(utc)
+
+dayjs.extend(utc);
+dayjs.extend(minMax);
 
 const Dashboard = () => {
 
 
-	const auth = useAuth();
-	console.log("dashboard");
-	console.log(auth.user);
-
 
 	return (
+
 		<div>
 			<AppbarDrawer>
 				<Typography variant="h5" component="h1">Dashboard</Typography>
 				<BillSummary />
+				<DashboardAccountCard />
 			</AppbarDrawer>
 		</div>
+
 	);
 
 }

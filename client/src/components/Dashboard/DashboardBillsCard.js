@@ -3,24 +3,24 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import apiRequest from "../../utils/apiRequest";
 import Typography from "@material-ui/core/Typography";
-import BillTable from "./BillTable";
+import BillTable from "../Bills/BillTable";
 
 dayjs.extend(utc);
 
 
-const BillSummary = () => {
+const DashboardBillsCard = () => {
 
 	const [upcomingBills, setUpcomingBills] = useState([]);
 	const [overdueBills, setOverdueBills] = useState([]);
 	const [recentBills, setRecentBills] = useState([]);
 
 
-	// Axios call to get bills from the database
+	// Get bills from the database and display
 	const getBillsData = async () => {
 
-		let overdue = [];
-		let upcoming = [];
-		let recent = [];
+		const overdue = [];
+		const upcoming = [];
+		const recent = [];
 
 		// Get a list of bills going back one month or that haven"t been paid yet
 		const startDate = dayjs().startOf("day").subtract(1, "month").utc().toISOString();
@@ -73,12 +73,12 @@ const BillSummary = () => {
 			<BillTable bills={overdueBills} billtype={"overdue"} />
 			<Typography variant="h6" component="h2">Upcoming Bills</Typography>
 			<BillTable bills={upcomingBills} billtype={"upcoming"} />
-			<Typography variant="h6" component="h2">Recently Paid Bills</Typography>
-			<BillTable bills={recentBills} billtype={"recent"} />
+			{/* <Typography variant="h6" component="h2">Recently Paid Bills</Typography>
+			<BillTable bills={recentBills} billtype={"recent"} /> */}
 
 		</>
 	);
 
 }
 
-export default BillSummary;
+export default DashboardBillsCard;
