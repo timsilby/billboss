@@ -24,6 +24,10 @@ const depositSchema = new Schema({
 		type: Boolean,
 		default: false
 	},
+	isRecurring: {
+		type: Boolean,
+		default: false
+	},
 	depositSet: Schema.ObjectId,
 	fireUid: {
 		type: String,

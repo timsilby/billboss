@@ -29,7 +29,7 @@ const AddDepositDialog = ({ open, toggleDialog }) => {
 		console.log(res);
 
 		// Get resulting _id from depositset and save the first deposit to deposits collection
-		return await apiRequest.createEntry("/api/deposits", { ...data, depositSet: res.data._id, paid: true });
+		return await apiRequest.createEntry("/api/deposits", { ...data, depositSet: res.data._id, paid: true, isRecurring: true });
 
 	}
 
