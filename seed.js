@@ -427,11 +427,22 @@ const deposits = [
 	{
 		title: "Payment from wage",
 		notes: "",
+		date: new Date("2021-02-23T14:00:00.000Z"),
+		amount: 920,
+		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
+		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		paid: false,
+		isRecurring: true
+	},
+	{
+		title: "Payment from wage",
+		notes: "",
 		date: new Date("2021-02-09T14:00:00.000Z"),
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
-		paid: false
+		isRecurring: true,
+		paid: true
 	},
 	{
 		title: "Payment from wage",
@@ -440,6 +451,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	},
 	{
@@ -449,6 +461,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	},
 	{
@@ -458,6 +471,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	},
 	{
@@ -467,6 +481,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	},
 	{
@@ -476,6 +491,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	},
 	{
@@ -485,6 +501,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	},
 	{
@@ -494,6 +511,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	},
 	{
@@ -503,6 +521,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	},
 	{
@@ -512,6 +531,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	},
 	{
@@ -521,6 +541,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	},
 	{
@@ -530,6 +551,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	},
 	{
@@ -539,6 +561,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	},
 	{
@@ -548,6 +571,7 @@ const deposits = [
 		amount: 920,
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
 		paid: true
 	}
 ]
