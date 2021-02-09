@@ -5,7 +5,7 @@ const dbModels = {
 	billsets: require("./Billset"),
 	deposits: require("./Deposit"),
 	depositsets: require("./Depositset"),
-	account: require("./Account"),
+	accounts: require("./Account"),
 	transactions: require("./Transaction"),
 
 }

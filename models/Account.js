@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const accountSchema = new Schema({
 
+	date: {
+		type: Date,
+		default: Date.now,
+	},
 	startBalance: {
 		type: Number,
-		required: true
-	},
-	currentBalance: {
-		type: String,
 		required: true
 	},
 	fireUid: {
