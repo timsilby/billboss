@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import AppbarDrawer from "../AppBarDrawer/AppbarDrawer";
 import AddDepositDialog from "./AddDepositDialog";
 import BudgetTotals from "./BudgetTotals";
+import Account from "./Account";
 
 const Budget = () => {
 
@@ -21,6 +22,7 @@ const Budget = () => {
 
 			<h1>Budget</h1>
 			<BudgetTotals />
+			<Account />
 			<AddDepositDialog open={dialogOpen} toggleDialog={toggleDialog} />
 			<Button onClick={toggleDialog}>Make a Deposit</Button>
 

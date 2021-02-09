@@ -14,6 +14,7 @@ const BudgetTotals = () => {
 
 	const [allBills, setAllBills] = useState([]);
 	const [requiredContributions, setRequiredContributions] = useState([]);
+	const [currentContributions, setCurrentContributions] = useState([]);
 
 
 	// Calculate bill totals and required contributions
@@ -27,10 +28,8 @@ const BudgetTotals = () => {
 
 		// Iterate over arrays and call function to calculate yearly totals, add to another array
 		billsets.data.forEach(entry => {
-			// const yearlyTotal = calculateYearlyTotal(entry.amount, entry.recursEvery, entry.recurringPeriod);
 			entry.yearlyTotal = calculateYearlyTotal(entry.amount, entry.recursEvery, entry.recurringPeriod);
 			entry.periodicAmounts = calculatePeriodicAmount(entry.yearlyTotal);
-			// entry.yearlyTotal = yearlyTotal;
 			allBillsArray.push(entry);
 		})
 
@@ -44,9 +43,6 @@ const BudgetTotals = () => {
 
 		// Calculate required contributions
 		const contributionsArray = [calculatePeriodicAmount(grandYearlyTotal)];
-
-		console.log(allBillsArray);
-		console.log(contributionsArray);
 
 		// Update state
 		setRequiredContributions(contributionsArray);
@@ -64,7 +60,6 @@ const BudgetTotals = () => {
 
 		<>
 			<Typography variant="h6" component="h2">Contributions</Typography>
-			{/* <Typography variant="body1">Required Contributions</Typography> */}
 			<ContributionCard contributions={requiredContributions}/>
 		</>
 

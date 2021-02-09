@@ -6,8 +6,6 @@ import Typography from "@material-ui/core/Typography";
 
 const ContributionCard = ({ contributions }) => {
 
-	console.log(contributions);
-
 	return (
 
 		<Card>
