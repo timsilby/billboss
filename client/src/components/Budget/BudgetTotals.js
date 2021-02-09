@@ -3,24 +3,23 @@ import apiRequest from "../../utils/apiRequest";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import Typography from "@material-ui/core/Typography";
-import { getYearlyTotal } from "../../utils/calculations";
+import { calculateYearlyTotal, calculatePeriodicAmount } from "../../utils/calculations";
+import ContributionCard from "./ContributionCard";
 
 dayjs.extend(utc);
 
 
 const BudgetTotals = () => {
 
-	// billTotal is combined total of all recurring bills and unpaid non-recurring bills.
-	// contributions is amount of money needed to be able to pay all bills.
-	const [billTotal, setBillTotal] = useState();
-	const [requiredContribution, setRequiredContribution] = useState();
+
+	const [allBills, setAllBills] = useState([]);
+	const [requiredContributions, setRequiredContributions] = useState([]);
 
 
 	// Calculate bill totals and required contributions
-	const getBudgetAmounts = async () => {
+	const getBudgetTotals = async () => {
 
-		const allBills = [];
-		const allYearlyTotals = [];
+		const allBillsArray = [];
 
 		// Get all billsets and unpaid non-recurring bills
 		const billsets = await apiRequest.getEntries("/api/billsets");
@@ -28,34 +27,48 @@ const BudgetTotals = () => {
 
 		// Iterate over arrays and call function to calculate yearly totals, add to another array
 		billsets.data.forEach(entry => {
-			const yearlyTotal = getYearlyTotal(entry.amount, entry.recursEvery, entry.recurringPeriod);
-			entry.yearlyTotal = yearlyTotal;
-			allYearlyTotals.push(yearlyTotal);
-			allBills.push(entry);
+			// const yearlyTotal = calculateYearlyTotal(entry.amount, entry.recursEvery, entry.recurringPeriod);
+			entry.yearlyTotal = calculateYearlyTotal(entry.amount, entry.recursEvery, entry.recurringPeriod);
+			entry.periodicAmounts = calculatePeriodicAmount(entry.yearlyTotal);
+			// entry.yearlyTotal = yearlyTotal;
+			allBillsArray.push(entry);
 		})
 
 		bills.data.forEach(entry => {
 			entry.yearlyTotal = entry.amount;
-			allYearlyTotals.push(entry.yearlyTotal);
-			allBills.push(entry);
+			allBillsArray.push(entry);
 		})
 
 		// Reduce the array to get grand yearly total
-		const grandYearlyTotal = allYearlyTotals.reduce((acc, current) => acc + current);
-		console.log(grandYearlyTotal);
-		setBillTotal(grandYearlyTotal);
+		const grandYearlyTotal = allBillsArray.reduce((acc, current) => { return acc + current.yearlyTotal }, 0);
+
+		// Calculate required contributions
+		const contributionsArray = [calculatePeriodicAmount(grandYearlyTotal)];
+
+		console.log(allBillsArray);
+		console.log(contributionsArray);
+
+		// Update state
+		setRequiredContributions(contributionsArray);
+		setAllBills(allBillsArray);
 
 	}
 
+
 	useEffect(() => {
-		getBudgetAmounts();
-	})
+		getBudgetTotals();
+	}, [])
 
 
 	return (
-		<h1>{billTotal}</h1>
-	);
 
+		<>
+			<Typography variant="h6" component="h2">Contributions</Typography>
+			{/* <Typography variant="body1">Required Contributions</Typography> */}
+			<ContributionCard contributions={requiredContributions}/>
+		</>
+
+	)
 }
 
 export default BudgetTotals;
