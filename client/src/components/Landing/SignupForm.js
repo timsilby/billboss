@@ -2,6 +2,7 @@ import { useHistory } from "react-router-dom";
 import { useAuth } from "../../utils/useAuth";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
 
 
 const SignupForm = () => {
@@ -68,13 +69,16 @@ const SignupForm = () => {
 				label="Password"
 				type="password"
 			/>
-			<Button
-				type="submit"
-				variant="contained"
-				margin="normal"
-			>
-				Create Account
-			</Button>
+			<Box mt={2}>
+				<Button
+					type="submit"
+					variant="contained"
+					margin="normal"
+					color="primary"
+				>
+					Create Account
+				</Button>
+			</Box>
 
 		</form>
 

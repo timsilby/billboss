@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import { Link as RouterLink } from "react-router-dom";
+import Box from "@material-ui/core/Box";
 
 
 const LoginForm = () => {
@@ -67,26 +68,33 @@ const LoginForm = () => {
 				label="Password"
 				type="password"
 			/>
-			<Grid
-				container
-				alignItems="center"
-				justify="space-between"
-			>
-				<Grid item>
-					<Button
-						type="submit"
-						variant="contained"
-						margin="normal"
-					>
-						Sign In
-					</Button>
+			<Box mt={2}>
+				<Grid
+					container
+					alignItems="center"
+					justify="space-between"
+				>
+					<Grid item>
+						<Button
+							type="submit"
+							variant="contained"
+							color="primary"
+						>
+							Sign In
+						</Button>
+					</Grid>
+					<Grid item>
+						<Link
+							variant="body2"
+							component={RouterLink}
+							to="/Signup"
+							color="secondary"
+						>
+							{"No account? Sign Up Here"}
+						</Link>
+					</Grid>
 				</Grid>
-				<Grid item>
-					<Link variant="body2" component={RouterLink} to="/Signup">
-						{"No account? Sign Up Here"}
-					</Link>
-				</Grid>
-			</Grid>
+			</Box>
 		</form>
 
 	)
