@@ -21,10 +21,11 @@ const useStyles = makeStyles((theme) => ({
 	},
 	menu: {
 		paddingTop: 0,
+		paddingBottom: 0
 	},
 	item: {
 		"&:hover": {
-			backgroundColor: theme.palette.secondary.dark
+			backgroundColor: theme.palette.primary.dark
 		}
 	},
 	// icon: {
