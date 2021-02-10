@@ -7,7 +7,13 @@ import App from './App';
 const theme = createMuiTheme({
 	palette: {
 		type: "dark",
-	}
+		primary: {
+			main: '#0288d1',
+		},
+		secondary: {
+			main: '#ffab00',
+		},
+	},
 });
 
 ReactDOM.render(
