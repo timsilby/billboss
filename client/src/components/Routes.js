@@ -6,6 +6,7 @@ import Bills from "../components/Bills/Bills";
 import Budget from "../components/Budget/Budget";
 import Reports from "../components/Reports/Reports";
 import Signup from "./Landing/Signup";
+import Account from "./Account/Account";
 
 
 function Routes() {
@@ -22,15 +23,15 @@ function Routes() {
 				</Route>
 				<Route exact path="/bills">
 					{user ? <Bills /> : <Landing />}
-					{/* <Bills /> */}
+				</Route>
+				<Route exact path="/account">
+					{user ? <Account /> : <Landing />}
 				</Route>
 				<Route exact path="/budget">
-					{/* <Budget /> */}
 					{user ? <Budget /> : <Landing />}
 				</Route>
 				<Route exact path="/reports">
 					{user ? <Reports /> : <Landing />}
-					{/* <Reports /> */}
 				</Route>
 				<Route exact path="/signup">
 					<Signup />
