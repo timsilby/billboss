@@ -42,8 +42,9 @@ const DashboardAccountCard = () => {
 
 	const getNextDeposit = async () => {
 
-		// Get unpaid deposits
-		const depositsData = await apiRequest.getEntries("/api/deposits?paid=false");
+		// Get unpaid deposits from today onwards
+		const today = dayjs().utc();
+		const depositsData = await apiRequest.getEntries(`/api/deposits?paid=false&date=${today}`);
 
 		// Sort the array and take values from the first one
 		const deposits = depositsData.data.sort((a, b) => b.date - a.date);
