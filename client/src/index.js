@@ -8,12 +8,20 @@ const theme = createMuiTheme({
 	palette: {
 		type: "dark",
 		primary: {
-			main: '#0288d1',
+			main: "#0288d1",
 		},
 		secondary: {
-			main: '#ffab00',
+			main: "#ffab40",
 		},
 	},
+	overrides: {
+		MuiButton: {
+			root: {
+				borderRadius: 0,
+				textTransform: "none"
+			}
+		}
+	}
 });
 
 ReactDOM.render(

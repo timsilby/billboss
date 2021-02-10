@@ -48,8 +48,9 @@ const SignupForm = () => {
 				id="displayName"
 				label="Name"
 				name="displayName"
+				color="secondary"
 				autoFocus
-			/>
+				/>
 			<TextField
 				variant="outlined"
 				required
@@ -58,7 +59,8 @@ const SignupForm = () => {
 				id="email"
 				label="Email Address"
 				name="email"
-			/>
+				color="secondary"
+				/>
 			<TextField
 				variant="outlined"
 				required
@@ -68,6 +70,7 @@ const SignupForm = () => {
 				name="password"
 				label="Password"
 				type="password"
+				color="secondary"
 			/>
 			<Box mt={2}>
 				<Button

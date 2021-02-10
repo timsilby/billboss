@@ -7,7 +7,7 @@ const Header = () => {
 	return (
 
 		<Box component="header" my={6}>
-			<Typography variant="h2" component="h1">
+			<Typography variant="h2" component="h1" color="primary">
 				BillBoss
 			</Typography>
 			<Typography variant="body1">

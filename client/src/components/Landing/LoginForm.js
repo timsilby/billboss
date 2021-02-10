@@ -56,8 +56,9 @@ const LoginForm = () => {
 				id="email"
 				label="Email Address"
 				name="email"
+				color="secondary"
 				autoFocus
-			/>
+				/>
 			<TextField
 				variant="outlined"
 				required
@@ -67,6 +68,7 @@ const LoginForm = () => {
 				name="password"
 				label="Password"
 				type="password"
+				color="secondary"
 			/>
 			<Box mt={2}>
 				<Grid
