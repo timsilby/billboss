@@ -17,7 +17,7 @@ const Dashboard = () => {
 	return (
 
 		<div>
-			<AppbarDrawer>
+			<AppbarDrawer title={"Dashboard"}>
 				<Typography variant="h5" component="h1">Dashboard</Typography>
 				<BillSummary />
 				<DashboardAccountCard />

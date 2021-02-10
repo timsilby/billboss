@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../utils/useAuth";
 import Button from "@material-ui/core/Button";
 import AppbarDrawer from "../AppBarDrawer/AppbarDrawer";
-import AddDepositDialog from "./AddDepositDialog";
+import AddDepositDialog from "../Account/AddDepositDialog";
 import BudgetTotals from "./BudgetTotals";
 import Account from "./Account";
 
@@ -18,7 +18,7 @@ const Budget = () => {
 
 	return (
 
-		<AppbarDrawer>
+		<AppbarDrawer title={"Budget"}>
 
 			<h1>Budget</h1>
 			<BudgetTotals />

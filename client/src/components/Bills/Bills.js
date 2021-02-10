@@ -58,7 +58,7 @@ const Bills = () => {
 
 	return (
 
-		<AppbarDrawer>
+		<AppbarDrawer title={"Bills"}>
 
 			<Typography variant="h5" component="h1">Manage Bills</Typography>
 			<Typography variant="h6" component="h2">Recurring Bills</Typography>

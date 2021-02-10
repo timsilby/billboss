@@ -18,7 +18,7 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		display: 'flex',
+		flexGrow: 1,
 	},
 	drawer: {
 		[theme.breakpoints.up('sm')]: {
@@ -31,12 +31,17 @@ const useStyles = makeStyles((theme) => ({
 			width: `calc(100% - ${drawerWidth}px)`,
 			marginLeft: drawerWidth,
 		},
+		display: "flex",
+		justifyContent: "space-between"
 	},
 	menuButton: {
 		marginRight: theme.spacing(2),
 		[theme.breakpoints.up('sm')]: {
 			display: 'none',
 		},
+	},
+	title: {
+		flexGrow: 1
 	},
 	toolbar: theme.mixins.toolbar,
 	drawerPaper: {
@@ -54,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
 
 function AppbarDrawer(props) {
 
-	const { window } = props;
+	const { window, title } = props;
 	const classes = useStyles();
 	const [anchorEl, setAnchorEl] = useState(null);
 	const [mobileOpen, setMobileOpen] = useState(false);
@@ -83,20 +88,20 @@ function AppbarDrawer(props) {
 
 	return (
 
-		<div>
+		<div className={classes.root}>
 
 			<AppBar position="static" className={classes.appBar}>
 				<Toolbar>
 					<IconButton
 						edge="start"
-						aria-label="open menu"
+						aria-label="open app menu drawer"
 						onClick={handleDrawerToggle}
 						className={classes.menuButton}
 					>
 						<MenuSharpIcon />
 					</IconButton>
-					<Typography variant="h6" component="h2" noWrap>
-						Placeholder
+					<Typography variant="h6" component="h1" noWrap className={classes.title}>
+						{title}
 					</Typography>
 					<div>
 						<IconButton
@@ -123,10 +128,8 @@ function AppbarDrawer(props) {
 							open={open}
 							onClose={handleClose}
 						>
-							<Typography>
-								{auth.user.displayName}
-							</Typography>
-							<Divider variant="middle" component="li" />
+							<MenuItem component="Typography">{auth.user.displayName}</MenuItem>
+							<Divider component="li" />
 							<MenuItem onClick={handleClose}>Profile</MenuItem>
 							<MenuItem onClick={handleLogout}>Logout</MenuItem>
 						</Menu>
@@ -134,7 +137,8 @@ function AppbarDrawer(props) {
 				</Toolbar>
 			</AppBar>
 
-			<nav className={classes.drawer} aria-label="app menu">
+
+			<nav className={classes.drawer} aria-label="app menu drawer">
 				<Hidden smUp>
 					<Drawer
 						container={container}
@@ -149,7 +153,6 @@ function AppbarDrawer(props) {
 							paper: classes.drawerPaper
 						}}
 					>
-						{/* {drawer} */}
 						<DrawerMenu />
 					</Drawer>
 				</Hidden>
@@ -161,7 +164,6 @@ function AppbarDrawer(props) {
 						variant="permanent"
 						open
 					>
-						{/* {drawer} */}
 						<DrawerMenu />
 					</Drawer>
 				</Hidden>

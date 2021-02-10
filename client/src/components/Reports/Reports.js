@@ -10,8 +10,9 @@ const Reports = () => {
 
 	return (
 		<div>
-			<AppbarDrawer />
+			<AppbarDrawer title={"Reports"}>
 			<h1>Reports</h1>
+			</AppbarDrawer>
 		</div>
 	);
 
