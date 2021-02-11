@@ -197,9 +197,19 @@ const bills = [
 	{
 		title: "Loan repayment",
 		notes: "Personal loan",
-		date: new Date("2021-02-11T14:00:00.000Z"),
+		date: new Date("2021-02-25T14:00:00.000Z"),
 		amount: 245,
 		paid: false,
+		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: true,
+		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
+	},
+	{
+		title: "Loan repayment",
+		notes: "Personal loan",
+		date: new Date("2021-02-11T14:00:00.000Z"),
+		amount: 245,
+		paid: true,
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		isRecurring: true,
 		billset: mongoose.Types.ObjectId("601f7e4bfb31ce4bf83d69c5")
