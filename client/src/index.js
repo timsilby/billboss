@@ -20,6 +20,9 @@ const theme = createMuiTheme({
 			root: {
 				borderRadius: 0,
 				textTransform: "none"
+			},
+			contained: {
+				boxShadow: "none"
 			}
 		},
 		MuiCard: {
@@ -39,12 +42,17 @@ const theme = createMuiTheme({
 		},
 		MuiTableContainer: {
 			root: {
-				borderRadius: 0
-			}
+				borderRadius: 0,
+			},
 		},
 		MuiDialog: {
 			paper: {
 				borderRadius: 0
+			}
+		},
+		MuiPaper: {
+			elevation1: {
+				boxShadow: "none"
 			}
 		}
 	}
