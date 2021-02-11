@@ -2,17 +2,17 @@ import { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import apiRequest from "../../utils/apiRequest";
-import Typography from "@material-ui/core/Typography";
-import BillTable from "../Bills/BillTable";
+import Container from "@material-ui/core/Container";
+import DashboardBillCard from "./DashboardBillCard";
+
 
 dayjs.extend(utc);
 
 
-const DashboardBillsCard = () => {
+const DashboardBillsSummary = () => {
 
 	const [upcomingBills, setUpcomingBills] = useState([]);
 	const [overdueBills, setOverdueBills] = useState([]);
-	const [recentBills, setRecentBills] = useState([]);
 
 
 	// Get bills from the database and display
@@ -20,11 +20,9 @@ const DashboardBillsCard = () => {
 
 		const overdue = [];
 		const upcoming = [];
-		const recent = [];
 
-		// Get a list of bills going back one month or that haven"t been paid yet
-		const startDate = dayjs().startOf("day").subtract(1, "month").utc().toISOString();
-		const dbData = await apiRequest.getEntries(`/api/bills?date=${startDate}`);
+		// Get a list of bills that haven"t been paid yet
+		const dbData = await apiRequest.getEntries("/api/bills?paid=false");
 
 		// Iterate through the array, converting date to local time, compare it today and
 		// push to the appropriate array.
@@ -32,13 +30,6 @@ const DashboardBillsCard = () => {
 
 			const dueDateLocal = dayjs(entry.date).local();
 			const currentDateLocal = dayjs().startOf("day");
-
-			// If the bill has been paid add to the recent array immediately
-			if (entry.paid) {
-				entry.date = dueDateLocal.format("DD/MM/YYYY");
-				recent.push(entry);
-				return
-			}
 
 			// If not paid, compare the date. If it's before today add to the overdue array.
 			if (dueDateLocal.isBefore(currentDateLocal)) {
@@ -53,9 +44,12 @@ const DashboardBillsCard = () => {
 
 		});
 
-		setUpcomingBills(upcoming);
+		// Sort the arrays. Grab the first three from the upcoming array
+		upcoming.sort((a, b) => b.date - a.date);
+		overdue.sort((a, b) => b.date - a.date);
+
+		setUpcomingBills(upcoming.slice(0, 3));
 		setOverdueBills(overdue);
-		setRecentBills(recent);
 
 	}
 
@@ -68,17 +62,14 @@ const DashboardBillsCard = () => {
 
 
 	return (
-		<>
-			<Typography variant="h6" component="h2">Overdue Bills</Typography>
-			<BillTable bills={overdueBills} billtype={"overdue"} />
-			<Typography variant="h6" component="h2">Upcoming Bills</Typography>
-			<BillTable bills={upcomingBills} billtype={"upcoming"} />
-			{/* <Typography variant="h6" component="h2">Recently Paid Bills</Typography>
-			<BillTable bills={recentBills} billtype={"recent"} /> */}
 
+		<>
+			<DashboardBillCard cardTitle={"Overdue Bills"} bills={overdueBills} />
+			<DashboardBillCard cardTitle={"Upcoming Bills"} bills={upcomingBills} />
 		</>
+
 	);
 
 }
 
-export default DashboardBillsCard;
+export default DashboardBillsSummary;

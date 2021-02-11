@@ -1,14 +1,49 @@
 import { useState, useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import apiRequest from "../../utils/apiRequest";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 
 dayjs.extend(utc);
 
+const useStyles = makeStyles((theme) => ({
+	root: {
+		minWidth: 350,
+		marginBottom: theme.spacing(4),
+		borderColor: theme.palette.primary.main
+	},
+	title: {
+		padding: theme.spacing(2),
+		backgroundColor: theme.palette.grey[700],
+	},
+	balance: {
+		display: "flex",
+		justifyContent: "space-around",
+		paddingTop: theme.spacing(3),
+		paddingBottom: theme.spacing(2)
+	},
+	cardContent: {
+		paddingLeft: theme.spacing(4),
+		paddingRight: theme.spacing(4)
+	},
+	depositBox: {
+		padding: theme.spacing(2),
+		marginBottom: theme.spacing(1)
+	},
+	depositTitle: {
+		paddingBottom: theme.spacing(1)
+	},
+	nextDeposit: {
+		display: "flex",
+		justifyContent: "space-between",
+	}
+
+}));
 
 const DashboardAccountCard = () => {
 
@@ -17,6 +52,8 @@ const DashboardAccountCard = () => {
 		date: "",
 		amount: ""
 	});
+
+	const classes = useStyles();
 
 	// Get current account balance
 	const getAccountBalance = async () => {
@@ -66,16 +103,22 @@ const DashboardAccountCard = () => {
 
 	return (
 
-		<>
-			<Card>
-				<CardHeader title="Account"></CardHeader>
-				<CardContent>
-					<Typography>Balance {currentBalance}</Typography>
-					<Typography>Next Deposit</Typography>
-					<Typography>{nextDeposit.date} {nextDeposit.amount}</Typography>
-				</CardContent>
-			</Card>
-		</>
+		<Card className={classes.root} variant="outlined">
+			<Typography component="h2" className={classes.title}>Account</Typography>
+			<CardContent className={classes.cardContent}>
+				<div className={classes.balance}>
+					<Typography variant="h5" component="span">Balance</Typography>
+					<Typography variant="h5" component="span">{currentBalance.toFixed(2)}</Typography>
+				</div>
+				<Box className={classes.depositBox}>
+					<Typography variant="h6" component="p" className={classes.depositTitle}>Next Deposit</Typography>
+					<div className={classes.nextDeposit}>
+						<Typography>{nextDeposit.date}</Typography>
+						<Typography>{nextDeposit.amount}</Typography>
+					</div>
+				</Box>
+			</CardContent>
+		</Card>
 
 	);
 

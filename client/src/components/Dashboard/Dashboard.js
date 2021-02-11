@@ -1,14 +1,8 @@
-import dayjs from "dayjs";
-import minMax from "dayjs/plugin/minMax";
-import utc from "dayjs/plugin/utc";
+import Container from "@material-ui/core/Container";
 import AppbarDrawer from "../AppBarDrawer/AppbarDrawer";
-import BillSummary from "./DashboardBillsCard";
-import Typography from "@material-ui/core/Typography";
+import DashboardBillsSummary from "./DashboardBillsSummary";
 import DashboardAccountCard from "./DashboardAccountCard";
 
-
-dayjs.extend(utc);
-dayjs.extend(minMax);
 
 const Dashboard = () => {
 
@@ -18,9 +12,10 @@ const Dashboard = () => {
 
 		<div>
 			<AppbarDrawer title={"Dashboard"}>
-				<Typography variant="h5" component="h1">Dashboard</Typography>
-				<BillSummary />
-				<DashboardAccountCard />
+				<Container component="main">
+					<DashboardBillsSummary />
+					<DashboardAccountCard />
+				</Container>
 			</AppbarDrawer>
 		</div>
 
