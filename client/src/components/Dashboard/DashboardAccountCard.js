@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import apiRequest from "../../utils/apiRequest";
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
