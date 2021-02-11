@@ -41,6 +41,11 @@ const theme = createMuiTheme({
 			root: {
 				borderRadius: 0
 			}
+		},
+		MuiDialog: {
+			paper: {
+				borderRadius: 0
+			}
 		}
 	}
 });
