@@ -1,7 +1,7 @@
-import Container from "@material-ui/core/Container";
 import AppbarDrawer from "../AppBarDrawer/AppbarDrawer";
 import DashboardBillsSummary from "./DashboardBillsSummary";
 import DashboardAccountCard from "./DashboardAccountCard";
+import Box from "@material-ui/core/Box";
 
 
 const Dashboard = () => {
@@ -12,10 +12,10 @@ const Dashboard = () => {
 
 		<div>
 			<AppbarDrawer title={"Dashboard"}>
-				<Container component="main">
+				<Box component="main">
 					<DashboardBillsSummary />
 					<DashboardAccountCard />
-				</Container>
+				</Box>
 			</AppbarDrawer>
 		</div>
 
