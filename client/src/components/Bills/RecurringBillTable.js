@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 	title: {
 		color: theme.palette.secondary.main
+	},
+	editButton: {
+		textAlign: "left"
 	}
 }));
 
@@ -52,14 +55,18 @@ const RecurringBillTable = ({ bills }) => {
 						<TableRow>
 							<TableCell align="left">Bill Name</TableCell>
 							<TableCell align="left">Billing Period</TableCell>
-							<TableCell align="left">Next Due</TableCell>
+							<TableCell align="left">Start Date</TableCell>
 							<TableCell align="right">Amount</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
 						{bills.map((bill) => (
 							<TableRow hover key={bill._id}>
-								<TableCell align="left" className={classes.title}><ButtonBase onClick={handleClick}>{bill.title}</ButtonBase></TableCell>
+								<TableCell align="left" className={classes.title}>
+									<ButtonBase className={classes.editButton} onClick={handleClick}>
+										{bill.title}
+									</ButtonBase>
+								</TableCell>
 								<TableCell align="left">{bill.recurrence}</TableCell>
 								<TableCell align="left">{bill.startDate}</TableCell>
 								<TableCell align="right">{bill.amount.toFixed(2)}</TableCell>
