@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "../../utils/useAuth";
 import apiRequest from "../../utils/apiRequest";
 import AppbarDrawer from "../AppBarDrawer/AppbarDrawer";
 import AddBillDialog from "./AddBillDialog";
@@ -7,18 +6,18 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import RecurringBillTable from "./RecurringBillTable";
 import BillTable from "./BillTable";
-import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import { makeStyles } from "@material-ui/core/styles";
+import Box from "@material-ui/core/Box";
 
 dayjs.extend(utc);
 
 const useStyles = makeStyles((theme) => ({
-	fab: {
-		position: 'fixed',
-		bottom: theme.spacing(2),
-		right: theme.spacing(2),
+	buttonBox: {
+		display: "flex",
+		justifyContent: "flex-end"
 	}
 }));
 
@@ -67,14 +66,14 @@ const Bills = () => {
 	return (
 
 		<AppbarDrawer title={"Bills"}>
-			<Container component="main">
+			<Box component="main">
 				<RecurringBillTable bills={recurringBills} />
 				<BillTable bills={otherBills} />
 				<AddBillDialog open={dialogOpen} toggleDialog={toggleDialog} />
-				<Fab className={classes.fab} onClick={toggleDialog} color="secondary" aria-label="add">
-					<AddIcon />
-				</Fab>
-			</Container>
+				<Box className={classes.buttonBox}>
+					<Button variant="contained" color="primary" onClick={toggleDialog}>Add Bill</Button>
+				</Box>
+			</Box>
 		</AppbarDrawer>
 
 	);
