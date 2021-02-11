@@ -37,6 +37,11 @@ const theme = createMuiTheme({
 				paddingBottom: 0
 			}
 		},
+		MuiTableContainer: {
+			root: {
+				borderRadius: 0
+			}
+		}
 	}
 });
 

@@ -128,7 +128,7 @@ function AppbarDrawer(props) {
 							open={open}
 							onClose={handleClose}
 						>
-							<MenuItem component="Typography">{auth.user.displayName}</MenuItem>
+							<MenuItem>{auth.user.displayName}</MenuItem>
 							<Divider component="li" />
 							<MenuItem onClick={handleClose}>Profile</MenuItem>
 							<MenuItem onClick={handleLogout}>Logout</MenuItem>

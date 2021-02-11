@@ -1,17 +1,27 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../utils/useAuth";
 import apiRequest from "../../utils/apiRequest";
-import Button from "@material-ui/core/Button";
 import AppbarDrawer from "../AppBarDrawer/AppbarDrawer";
 import AddBillDialog from "./AddBillDialog";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import Typography from "@material-ui/core/Typography";
 import RecurringBillTable from "./RecurringBillTable";
 import BillTable from "./BillTable";
-
+import Container from "@material-ui/core/Container";
+import Fab from "@material-ui/core/Fab";
+import AddIcon from "@material-ui/icons/Add";
+import { makeStyles } from "@material-ui/core/styles";
 
 dayjs.extend(utc);
+
+const useStyles = makeStyles((theme) => ({
+	fab: {
+		position: 'fixed',
+		bottom: theme.spacing(2),
+		right: theme.spacing(2),
+	}
+}));
+
 
 const Bills = () => {
 
@@ -19,9 +29,7 @@ const Bills = () => {
 	const [recurringBills, setRecurringBills] = useState([]);
 	const [otherBills, setOtherBills] = useState([]);
 
-	const auth = useAuth();
-	console.log("bills");
-	console.log(auth.user);
+	const classes = useStyles();
 
 	const toggleDialog = () => setDialogOpen(!dialogOpen);
 
@@ -59,15 +67,14 @@ const Bills = () => {
 	return (
 
 		<AppbarDrawer title={"Bills"}>
-
-			<Typography variant="h5" component="h1">Manage Bills</Typography>
-			<Typography variant="h6" component="h2">Recurring Bills</Typography>
-			<RecurringBillTable bills={recurringBills} />
-			<Typography variant="h6" component="h2">Other Bills</Typography>
-			<BillTable bills={otherBills} billtype={"other"} />
-			<AddBillDialog open={dialogOpen} toggleDialog={toggleDialog} />
-			<Button onClick={toggleDialog}>Add Bill</Button>
-
+			<Container component="main">
+				<RecurringBillTable bills={recurringBills} />
+				<BillTable bills={otherBills} />
+				<AddBillDialog open={dialogOpen} toggleDialog={toggleDialog} />
+				<Fab className={classes.fab} onClick={toggleDialog} color="secondary" aria-label="add">
+					<AddIcon />
+				</Fab>
+			</Container>
 		</AppbarDrawer>
 
 	);

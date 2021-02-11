@@ -14,10 +14,10 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
 
 	title: {
-		backgroundColor: theme.palette.primary.dark,
+		backgroundColor: theme.palette.primary.main,
 		paddingLeft: theme.spacing(2),
-		paddingTop: theme.spacing(3),
-		paddingBottom: theme.spacing(3)
+		paddingTop: theme.spacing(2),
+		paddingBottom: theme.spacing(2)
 	},
 	menu: {
 		paddingTop: 0,
@@ -47,8 +47,6 @@ const DrawerMenu = () => {
 			<Typography variant="h6" component="div" className={classes.title}>
 				BillBoss
 			</Typography>
-
-			<Divider />
 
 			<List className={classes.menu}>
 				<ListItem
