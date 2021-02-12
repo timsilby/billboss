@@ -47,6 +47,8 @@ const AddBillDialog = ({ open, toggleDialog }) => {
 
 	const theme = useTheme();
 	const classes = useStyles();
+	const fullScreen = useMediaQuery(theme.breakpoints.down("xs"));
+
 
 	const addRecurringBill = async (data) => {
 
@@ -98,7 +100,7 @@ const AddBillDialog = ({ open, toggleDialog }) => {
 		<div>
 
 			<Dialog
-				// fullScreen={fullScreen}
+				fullScreen={fullScreen}
 				open={open}
 				onClose={toggleDialog}
 				onEscapeKeyDown={toggleDialog}

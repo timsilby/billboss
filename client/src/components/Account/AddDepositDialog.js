@@ -20,7 +20,7 @@ import DayJsUtils from "@date-io/dayjs";
 const AddDepositDialog = ({ open, toggleDialog }) => {
 
 	const theme = useTheme();
-	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+	const fullScreen = useMediaQuery(theme.breakpoints.down("xs"));
 
 	const addRecurringDeposit = async (data) => {
 
