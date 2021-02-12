@@ -6,8 +6,6 @@ import Box from "@material-ui/core/Box";
 
 const Dashboard = () => {
 
-
-
 	return (
 
 		<div>
