@@ -13,36 +13,7 @@ import RecurringDepositTable from "./RecurringDepositTable";
 dayjs.extend(utc);
 
 const useStyles = makeStyles((theme) => ({
-	root: {
-		minWidth: 350,
-		marginBottom: theme.spacing(4),
-		borderColor: theme.palette.primary.main
-	},
-	title: {
-		padding: theme.spacing(2),
-		backgroundColor: theme.palette.grey[700],
-	},
-	balance: {
-		display: "flex",
-		justifyContent: "space-around",
-		paddingTop: theme.spacing(3),
-		paddingBottom: theme.spacing(2)
-	},
-	cardContent: {
-		paddingLeft: theme.spacing(4),
-		paddingRight: theme.spacing(4)
-	},
-	depositBox: {
-		padding: theme.spacing(2),
-		marginBottom: theme.spacing(1)
-	},
-	depositTitle: {
-		paddingBottom: theme.spacing(1)
-	},
-	nextDeposit: {
-		display: "flex",
-		justifyContent: "space-between",
-	},
+
 	buttonBox: {
 		display: "flex",
 		justifyContent: "flex-end"
