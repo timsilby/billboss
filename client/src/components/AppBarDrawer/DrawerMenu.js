@@ -9,6 +9,7 @@ import ReceiptSharpIcon from "@material-ui/icons/ReceiptSharp";
 import AccountBalanceWalletSharpIcon from "@material-ui/icons/AccountBalanceWalletSharp";
 import MonetizationOnSharpIcon from "@material-ui/icons/MonetizationOnSharp";
 import AssessmentSharpIcon from "@material-ui/icons/AssessmentSharp";
+import LockIcon from "@material-ui/icons/Lock";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
 // Imported into AppbarDrawer
 
-const DrawerMenu = () => {
+const DrawerMenu = ({ handleLogout }) => {
 
 	const classes = useStyles();
 
@@ -113,9 +114,28 @@ const DrawerMenu = () => {
 					</ListItemIcon>
 					<ListItemText primary="Reports" />
 				</ListItem>
+
+				<Divider />
+
+				<ListItem
+					key="logout"
+					// component="a"
+					button
+					// href="/reports"
+					className={classes.item}
+					onClick={handleLogout}
+				>
+					<ListItemIcon>
+						<LockIcon className={classes.icon} />
+					</ListItemIcon>
+					<ListItemText primary="Logout" />
+				</ListItem>
+
+
+
+
 			</List>
 
-			<Divider />
 
 		</div>
 	)

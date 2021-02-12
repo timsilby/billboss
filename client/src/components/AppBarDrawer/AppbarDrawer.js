@@ -5,10 +5,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuSharpIcon from "@material-ui/icons/MenuSharp";
-import AccountBoxSharp from "@material-ui/icons/AccountBoxSharp";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import { makeStyles } from "@material-ui/core/styles";
@@ -61,22 +57,11 @@ function AppbarDrawer(props) {
 
 	const { window, title } = props;
 	const classes = useStyles();
-	const [anchorEl, setAnchorEl] = useState(null);
 	const [mobileOpen, setMobileOpen] = useState(false);
-	const open = Boolean(anchorEl);
 
 	const auth = useAuth();
 
-	const handleMenu = (event) => {
-		setAnchorEl(event.currentTarget);
-	};
-
-	const handleClose = () => {
-		setAnchorEl(null);
-	};
-
 	const handleLogout = () => {
-		setAnchorEl(null);
 		auth.firebaseLogout();
 	}
 
@@ -103,37 +88,6 @@ function AppbarDrawer(props) {
 					<Typography variant="h6" component="h1" noWrap className={classes.title}>
 						{title}
 					</Typography>
-					<div>
-						<IconButton
-							aria-label="open user menu"
-							aria-controls="user-menu"
-							aria-haspopup="true"
-							onClick={handleMenu}
-						>
-							<AccountBoxSharp />
-						</IconButton>
-						<Menu
-							id="user-menu"
-							anchorEl={anchorEl}
-							getContentAnchorEl={null}
-							anchorOrigin={{
-								vertical: "bottom",
-								horizontal: "right",
-							}}
-							keepMounted
-							transformOrigin={{
-								vertical: "top",
-								horizontal: "right",
-							}}
-							open={open}
-							onClose={handleClose}
-						>
-							<MenuItem>{auth.user.displayName}</MenuItem>
-							<Divider component="li" />
-							<MenuItem onClick={handleClose}>Profile</MenuItem>
-							<MenuItem onClick={handleLogout}>Logout</MenuItem>
-						</Menu>
-					</div>
 				</Toolbar>
 			</AppBar>
 
@@ -153,7 +107,7 @@ function AppbarDrawer(props) {
 							paper: classes.drawerPaper
 						}}
 					>
-						<DrawerMenu />
+						<DrawerMenu handleLogout={handleLogout} />
 					</Drawer>
 				</Hidden>
 				<Hidden xsDown>
