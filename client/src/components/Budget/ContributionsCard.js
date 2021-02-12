@@ -63,7 +63,7 @@ const ContributionsCard = ({ budgetHealth, currentContributions, requiredContrib
 						component="h3"
 						className={classes.contributionTitle}
 					>
-						Current Contributions
+						Current Contribution
 					</Typography>
 					<div className={classes.contribution}>
 						<Typography color="secondary">Weekly</Typography>
@@ -83,7 +83,7 @@ const ContributionsCard = ({ budgetHealth, currentContributions, requiredContrib
 						component="h3"
 						className={classes.contributionTitle}
 					>
-						Required Contributions
+						Required Contribution
 					</Typography>
 					<div className={classes.contribution}>
 						<Typography color="secondary">Weekly</Typography>
