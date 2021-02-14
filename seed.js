@@ -455,6 +455,16 @@ const deposits = [
 		paid: true
 	},
 	{
+		title: "Account top-up",
+		notes: "",
+		date: new Date("2021-01-29T14:00:00.000Z"),
+		amount: 650,
+		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
+		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: false,
+		paid: true
+	},
+	{
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2021-01-26T14:00:00.000Z"),
@@ -462,7 +472,7 @@ const deposits = [
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		isRecurring: true,
-		paid: true
+		paid: false
 	},
 	{
 		title: "Payment from wage",
@@ -492,7 +502,7 @@ const deposits = [
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		isRecurring: true,
-		paid: true
+		paid: false
 	},
 	{
 		title: "Payment from wage",
@@ -545,6 +555,16 @@ const deposits = [
 		paid: true
 	},
 	{
+		title: "Transfer from savings",
+		notes: "",
+		date: new Date("2020-09-23T14:00:00.000Z"),
+		amount: 920,
+		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
+		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
+		isRecurring: false,
+		paid: true
+	},
+	{
 		title: "Payment from wage",
 		notes: "",
 		date: new Date("2020-09-22T14:00:00.000Z"),
@@ -562,7 +582,7 @@ const deposits = [
 		depositSet: mongoose.Types.ObjectId("601f8b91540667369c0c8069"),
 		fireUid: "0PV7bV9Wcwh3yZiTFRqtGr505zs1",
 		isRecurring: true,
-		paid: true
+		paid: false
 	},
 	{
 		title: "Payment from wage",
@@ -603,15 +623,15 @@ const account = [
 //     process.exit(1);
 //   });
 
-// dbModels.deposits.collection.insertMany(deposits)
-//   .then(data => {
-//     console.log(data.result.n + " records inserted!");
-//     process.exit(0);
-//   })
-//   .catch(err => {
-//     console.error(err);
-//     process.exit(1);
-//   });
+dbModels.deposits.collection.insertMany(deposits)
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
 
 // dbModels.accounts.collection.insertMany(account)
 //   .then(data => {
