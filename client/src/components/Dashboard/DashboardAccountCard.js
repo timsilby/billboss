@@ -71,7 +71,6 @@ const DashboardAccountCard = () => {
 
 		// Calculate current balance
 		const balance = startBalance + totalDeposits - totalWithdrawals;
-		console.log(balance);
 		setCurrentBalance(balance);
 
 	}
