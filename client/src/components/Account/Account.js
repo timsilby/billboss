@@ -49,7 +49,7 @@ const Account = () => {
 		const paidDeposits = await apiRequest.getEntries("/api/deposits?paid=true");
 		const depositSets = await apiRequest.getEntries("/api/depositsets");
 
-		const today = dayjs().utc();
+		const today = dayjs().startOf("day").utc().format("YYYY-MM-DD");
 
 		// Account balance
 		// ==========================================
