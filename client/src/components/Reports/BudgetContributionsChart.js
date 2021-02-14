@@ -21,8 +21,6 @@ const BudgetContributionsChart = ({ chartData }) => {
 
 	const customTicks = (props) => {
 
-		console.log(props);
-
 		// Convert unix time to something useful
 		const tickLabel = dayjs.unix(props.payload.value).format("DD MMM");
 

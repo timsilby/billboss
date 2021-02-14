@@ -26,8 +26,6 @@ const SignupForm = () => {
 		try {
 
 			const newUser = await auth.firebaseSignup(userData);
-			console.log("signup");
-			console.log(newUser);
 			history.push("/dashboard");
 
 		}

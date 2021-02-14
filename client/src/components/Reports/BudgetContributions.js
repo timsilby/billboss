@@ -67,8 +67,6 @@ const BudgetContributions = () => {
 
 		}
 
-		console.log(requiredWeeklyData);
-
 		// ------------------------------------------
 
 
@@ -91,17 +89,12 @@ const BudgetContributions = () => {
 		const actualData = [];
 		// let accActualTotal = 0;
 
-		console.log("Deposits", deposits);
-
 		deposits.forEach(entry => {
 			actualData.push({ date: entry.date, actualAmount: entry.amount, requiredAmount: 0 })
 		})
 
-		console.log("Actual weekly", actualData);
-
 		// Combine the two arrays and calculate all required accumulative totals
 		const combinedData = [...actualData, ...requiredWeeklyData].sort((a, b) => a.date - b.date);
-		console.log("Combined",combinedData);
 
 		// Iterate through the array and accumulate totals
 		let accRequiredTotal = 0;
@@ -114,8 +107,6 @@ const BudgetContributions = () => {
 				requiredAmount: accRequiredTotal += entry.requiredAmount
 			}
 		});
-
-		console.log("Calculated data", calculatedData);
 
 		// ------------------------------------------
 
