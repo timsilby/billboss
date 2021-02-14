@@ -36,6 +36,7 @@ router.route("/api/:dbcollection/:fireid?")
 				// req.query.date = { $gte: req.query.date };
 				req.query.$or = [{ date: { $gte: req.query.date } }, { paid: false }];
 				delete req.query.date;
+				delete req.query.paid;
 			}
 			console.log(req.query);
 			controller.getDocuments(req, res);
