@@ -1,5 +1,9 @@
+const dayjs = require("dayjs");
+const utc = require("dayjs/plugin/utc");
 const router = require("express").Router();
 const controller = require("../controllers/db-controller");
+
+dayjs.extend(utc);
 
 // These routes are imported into all-routes.js.
 // Req and res are automatically passed through to the handlers in most cases.
@@ -23,25 +27,22 @@ router.route("/api/:dbcollection/:fireid?")
 	// If ?id= query is present this is the document id so call a different function.
 	.get(function (req, res) {
 
-		req.query.fireUid = req.currentUser.uid;
-
 		if (req.query.id) {
 			controller.getDocumentById(req, res);
 		}
 		else {
 
+			req.query.fireUid = req.currentUser.uid;
+
 			// Add the start date to the query and also return unpaid bills regardless of date
 			if (req.query.date) {
-				// const startDate = new Date(req.query.date);
-				// req.query.date = { $gte: req.query.date };
-				req.query.$or = [{ date: { $gte: req.query.date } }, { paid: false }];
-				delete req.query.date;
-				delete req.query.paid;
+				req.query.date = { $gte: req.query.date };
 			}
 			console.log(req.query);
 			controller.getDocuments(req, res);
 
 		}
+
 	})
 
 	// Inject the users firebase id into req.body so this value will be added on creation.
