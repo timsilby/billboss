@@ -1,5 +1,5 @@
 import { ProvideAuth } from "./utils/useAuth";
-import Routes from "./components/Routes";
+import Routes from "./Routes";
 
 function App() {
 
