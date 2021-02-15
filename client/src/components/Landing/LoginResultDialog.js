@@ -36,7 +36,7 @@ const LoginResultDialog = ({ open, toggleDialog }) => {
 			>
 				<DialogContent className={classes.root}>
 					<DialogContentText variant="h6" component="h1">
-						Login Failed
+						Sign In Failed
 					</DialogContentText>
 					<DialogContentText>
 						Please try again
