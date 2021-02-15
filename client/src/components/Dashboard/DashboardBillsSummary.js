@@ -63,7 +63,7 @@ const DashboardBillsSummary = () => {
 	return (
 
 		<>
-			<DashboardBillCard cardTitle={"Overdue Bills"} bills={overdueBills} />
+			<DashboardBillCard cardTitle={"Overdue Bills"} bills={overdueBills} error={true} />
 			<DashboardBillCard cardTitle={"Upcoming Bills"} bills={upcomingBills} />
 		</>
 

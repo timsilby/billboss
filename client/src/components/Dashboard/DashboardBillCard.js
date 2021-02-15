@@ -14,9 +14,21 @@ const useStyles = makeStyles((theme) => ({
 		marginBottom: theme.spacing(4),
 		borderColor: theme.palette.primary.main
 	},
+	errorRoot: {
+		minWidth: 350,
+		marginBottom: theme.spacing(4),
+		borderColor: theme.palette.error.dark
+	},
 	title: {
 		padding: theme.spacing(2),
 		backgroundColor: theme.palette.grey[700],
+	},
+	errorTitle: {
+		padding: theme.spacing(2),
+		backgroundColor: theme.palette.error.dark
+	},
+	billTitle: {
+		color: theme.palette.secondary.main
 	},
 	billDate: {
 		flexGrow: 0,
@@ -31,15 +43,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const DashboardBillCard = ({ cardTitle, bills }) => {
+const DashboardBillCard = ({ cardTitle, bills, error }) => {
 
 	const classes = useStyles();
 
 
 	return (
 
-		<Card className={classes.root} variant="outlined">
-			<Typography component="h2" className={classes.title}>{cardTitle}</Typography>
+		<Card className={error ? classes.errorRoot : classes.root} variant="outlined">
+			<Typography component="h2" className={error ? classes.errorTitle : classes.title}>{cardTitle}</Typography>
 			<CardContent>
 				<List>
 					{bills.map((bill) => (
@@ -48,7 +60,7 @@ const DashboardBillCard = ({ cardTitle, bills }) => {
 							<ListItemText className={classes.billDate}>
 								{bill.date}
 							</ListItemText>
-							<ListItemText>
+							<ListItemText className={classes.billTitle}>
 								{bill.title}
 							</ListItemText>
 							<ListItemText className={classes.billAmount}>

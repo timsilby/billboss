@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, StylesProvider } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
@@ -17,8 +17,24 @@ const useStyles = makeStyles((theme) => ({
 	balance: {
 		display: "flex",
 		justifyContent: "space-around",
-		paddingTop: theme.spacing(3),
-		paddingBottom: theme.spacing(2)
+		marginTop: theme.spacing(3),
+		marginBottom: theme.spacing(2),
+		paddingTop: theme.spacing(2),
+		paddingBottom: theme.spacing(2),
+		borderStyle: "solid",
+		borderWidth: "2px",
+		borderColor: theme.palette.success.dark,
+	},
+	balanceError: {
+		display: "flex",
+		justifyContent: "space-around",
+		marginTop: theme.spacing(3),
+		marginBottom: theme.spacing(2),
+		paddingTop: theme.spacing(2),
+		paddingBottom: theme.spacing(2),
+		borderStyle: "solid",
+		borderWidth: "2px",
+		borderColor: theme.palette.error.dark,
 	},
 	cardContent: {
 		paddingLeft: theme.spacing(4),
@@ -51,7 +67,7 @@ const AccountCard = ({ deposit, payment, balance }) => {
 		<Card className={classes.root} variant="outlined">
 			<Typography component="h2" className={classes.title}>Account</Typography>
 			<CardContent className={classes.cardContent}>
-				<div className={classes.balance}>
+				<div className={balance < 0 ? classes.balanceError : classes.balance}>
 					<Typography variant="h6" component="span">Balance</Typography>
 					<Typography variant="h6" component="span">{balance.toFixed(2)}</Typography>
 				</div>

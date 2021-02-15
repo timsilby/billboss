@@ -23,8 +23,24 @@ const useStyles = makeStyles((theme) => ({
 	balance: {
 		display: "flex",
 		justifyContent: "space-around",
-		paddingTop: theme.spacing(3),
-		paddingBottom: theme.spacing(2)
+		marginTop: theme.spacing(3),
+		marginBottom: theme.spacing(2),
+		paddingTop: theme.spacing(2),
+		paddingBottom: theme.spacing(2),
+		borderStyle: "solid",
+		borderWidth: "2px",
+		borderColor: theme.palette.success.dark,
+	},
+	balanceError: {
+		display: "flex",
+		justifyContent: "space-around",
+		marginTop: theme.spacing(3),
+		marginBottom: theme.spacing(2),
+		paddingTop: theme.spacing(2),
+		paddingBottom: theme.spacing(2),
+		borderStyle: "solid",
+		borderWidth: "2px",
+		borderColor: theme.palette.error.dark,
 	},
 	cardContent: {
 		paddingLeft: theme.spacing(4),
@@ -35,7 +51,8 @@ const useStyles = makeStyles((theme) => ({
 		marginBottom: theme.spacing(1)
 	},
 	depositTitle: {
-		paddingBottom: theme.spacing(1)
+		paddingBottom: theme.spacing(1),
+		color: theme.palette.secondary.main
 	},
 	nextDeposit: {
 		display: "flex",
@@ -104,12 +121,12 @@ const DashboardAccountCard = () => {
 		<Card className={classes.root} variant="outlined">
 			<Typography component="h2" className={classes.title}>Account</Typography>
 			<CardContent className={classes.cardContent}>
-				<div className={classes.balance}>
-					<Typography variant="h5" component="span">Balance</Typography>
-					<Typography variant="h5" component="span">{currentBalance.toFixed(2)}</Typography>
+				<div className={currentBalance < 0 ? classes.balanceError : classes.balance}>
+					<Typography variant="h6" component="span">Balance</Typography>
+					<Typography variant="h6" component="span">{currentBalance.toFixed(2)}</Typography>
 				</div>
 				<Box className={classes.depositBox}>
-					<Typography variant="h6" component="p" className={classes.depositTitle}>Next Deposit</Typography>
+					<Typography component="h3" className={classes.depositTitle}>Next Deposit</Typography>
 					<div className={classes.nextDeposit}>
 						<Typography>{nextDeposit.date}</Typography>
 						<Typography>{nextDeposit.amount}</Typography>

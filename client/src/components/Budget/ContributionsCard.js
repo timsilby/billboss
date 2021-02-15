@@ -15,13 +15,34 @@ const useStyles = makeStyles((theme) => ({
 		padding: theme.spacing(2),
 		backgroundColor: theme.palette.grey[700],
 	},
+	// health: {
+	// 	display: "flex",
+	// 	justifyContent: "space-around",
+	// 	paddingTop: theme.spacing(3),
+	// 	paddingBottom: theme.spacing(2)
+	// },
 	health: {
 		display: "flex",
 		justifyContent: "space-around",
-		paddingTop: theme.spacing(3),
-		paddingBottom: theme.spacing(2)
+		marginTop: theme.spacing(3),
+		marginBottom: theme.spacing(2),
+		paddingTop: theme.spacing(2),
+		paddingBottom: theme.spacing(2),
+		borderStyle: "solid",
+		borderWidth: "2px",
+		borderColor: theme.palette.success.dark,
 	},
-	cardContent: {
+	healthError: {
+		display: "flex",
+		justifyContent: "space-around",
+		marginTop: theme.spacing(3),
+		marginBottom: theme.spacing(2),
+		paddingTop: theme.spacing(2),
+		paddingBottom: theme.spacing(2),
+		borderStyle: "solid",
+		borderWidth: "2px",
+		borderColor: theme.palette.error.dark,
+	},cardContent: {
 		paddingLeft: theme.spacing(4),
 		paddingRight: theme.spacing(4),
 		marginBottom: theme.spacing(2)
@@ -54,7 +75,7 @@ const ContributionsCard = ({ budgetHealth, currentContributions, requiredContrib
 		<Card className={classes.root} variant="outlined">
 			<Typography component="h2" className={classes.title}>Contributions</Typography>
 			<CardContent className={classes.cardContent}>
-				<div className={classes.health}>
+				<div className={budgetHealth === "Poor" ? classes.healthError : classes.health}>
 					<Typography variant="h6" component="span">Budget Health</Typography>
 					<Typography variant="h6" component="span">{budgetHealth}</Typography>
 				</div>
