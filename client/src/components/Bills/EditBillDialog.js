@@ -18,6 +18,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { useEffect } from "react";
+import apiRequest from "../../utils/apiRequest";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -44,23 +45,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const EditBillDialog = ({ open, toggleDialog, currentData }) => {
+const EditBillDialog = ({ open, toggleDialog, currentData, refreshTables }) => {
 
 	const theme = useTheme();
 	const classes = useStyles();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("xs"));
 
 
-	// const editRecurringBill = async (data) => {
+	const editRecurringBill = async (data) => {
 
-	// 	// Save recurring bill to the billsets collection
-	// 	const res = await apiRequest.createEntry("/api/billsets", data);
-	// 	console.log(res);
+		// Edit recurring bill in the billsets collection
+		console.log(data);
+		const res = await apiRequest.updateEntry(`/api/billsets?id=${data._id}`, data);
+		console.log(res);
+		return res;
 
-	// 	// Get resulting _id from billset and save the first bill to bills collection
-	// 	return await apiRequest.createEntry("/api/bills", { ...data, isRecurring: true, billset: res.data._id });
+		// Get resulting _id from billset and update bill in the bills collection
+		// return await apiRequest.createEntry("/api/bills", { ...data, isRecurring: true, billset: res.data._id });
 
-	// }
+	}
 
 	const formik = useFormik({
 
@@ -76,19 +79,21 @@ const EditBillDialog = ({ open, toggleDialog, currentData }) => {
 		},
 		onSubmit: async (values) => {
 
-			// values.amount = parseFloat(values.amount);
+			values.amount = parseFloat(values.amount);
 
-			// if (values.isRecurring) {
-			// 	const res = await editRecurringBill(values);
-			// 	toggleDialog();
-			// 	formik.resetForm();
-			// 	return res;
-			// }
+			if (values.isRecurring) {
+				const res = await editRecurringBill(values);
+				toggleDialog();
+				formik.resetForm();
+				refreshTables();
+				return res;
+			}
 
-			// const res = await apiRequest.createEntry("api/bills", values);
-			// toggleDialog();
-			// formik.resetForm();
-			// return res;
+			const res = await apiRequest.updateEntry(`/api/bills?id=${values._id}`, values);
+			toggleDialog();
+			formik.resetForm();
+			refreshTables();
+			return res;
 
 		}
 
@@ -96,6 +101,7 @@ const EditBillDialog = ({ open, toggleDialog, currentData }) => {
 
 	useEffect(() => {
 
+		console.log(currentData);
 		formik.setValues({ ...currentData });
 
 	}, [currentData])

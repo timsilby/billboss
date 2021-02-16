@@ -51,11 +51,11 @@ const Bills = () => {
 
 		if (recurring) {
 			const res = await apiRequest.getEntryById(`/api/billsets?id=${billId}`);
-			data = res.data;
+			data = {...res.data, isRecurring: true};
 		}
 		else {
 			const res = await apiRequest.getEntryById(`/api/bills?id=${billId}`);
-			data = {...res.data, recursEvery: 1, recurringPeriod: ""};
+			data = {...res.data, isRecurring: false, recursEvery: 0, recurringPeriod: ""};
 		}
 
 		setCurrentBillData(data);
@@ -101,11 +101,16 @@ const Bills = () => {
 			<Box component="main">
 				<RecurringBillTable bills={recurringBills} getCurrentBillData={getCurrentBillData} />
 				<BillTable bills={otherBills} getCurrentBillData={getCurrentBillData} />
-				<AddBillDialog open={addDialogOpen} toggleDialog={toggleAddDialog} />
+				<AddBillDialog
+					open={addDialogOpen}
+					toggleDialog={toggleAddDialog}
+					refreshTables={getBillsData}
+				/>
 				<EditBillDialog
 					open={editDialogOpen}
 					toggleDialog={toggleEditDialog}
 					currentData={currentBillData}
+					refreshTables={getBillsData}
 				/>
 				<Box className={classes.buttonBox}>
 					<Button variant="contained" color="primary" onClick={toggleAddDialog}>Add Bill</Button>
