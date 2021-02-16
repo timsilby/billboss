@@ -9,6 +9,7 @@ import BillTable from "./BillTable";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
+import EditBillDialog from "./EditBillDialog";
 
 dayjs.extend(utc);
 
@@ -19,16 +20,48 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
+const emptyFormData = {
+	title: "",
+	notes: "",
+	date: null,
+	isRecurring: false,
+	recursEvery: 1,
+	recurringPeriod: "",
+	amount: "",
+	isAutomatic: false
+}
+
 
 const Bills = () => {
 
-	const [dialogOpen, setDialogOpen] = useState(false);
+	const [addDialogOpen, setAddDialogOpen] = useState(false);
+	const [editDialogOpen, setEditDialogOpen] = useState(false);
+	const [currentBillData, setCurrentBillData] = useState(emptyFormData);
 	const [recurringBills, setRecurringBills] = useState([]);
 	const [otherBills, setOtherBills] = useState([]);
 
 	const classes = useStyles();
 
-	const toggleDialog = () => setDialogOpen(!dialogOpen);
+	const toggleAddDialog = () => setAddDialogOpen(!addDialogOpen);
+	const toggleEditDialog = () => setEditDialogOpen(!editDialogOpen);
+
+	const getCurrentBillData = async (billId, recurring) => {
+
+		let data;
+
+		if (recurring) {
+			const res = await apiRequest.getEntryById(`/api/billsets?id=${billId}`);
+			data = res.data;
+		}
+		else {
+			const res = await apiRequest.getEntryById(`/api/bills?id=${billId}`);
+			data = {...res.data, recursEvery: 1, recurringPeriod: ""};
+		}
+
+		setCurrentBillData(data);
+		toggleEditDialog();
+
+	}
 
 	const getBillsData = async () => {
 
@@ -54,6 +87,7 @@ const Bills = () => {
 
 	}
 
+
 	useEffect(() => {
 
 		getBillsData();
@@ -65,11 +99,19 @@ const Bills = () => {
 
 		<AppbarDrawer title={"Bills"}>
 			<Box component="main">
-				<RecurringBillTable bills={recurringBills} />
-				<BillTable bills={otherBills} />
-				<AddBillDialog open={dialogOpen} toggleDialog={toggleDialog} />
+				<RecurringBillTable bills={recurringBills} getCurrentBillData={getCurrentBillData} />
+				<BillTable bills={otherBills} getCurrentBillData={getCurrentBillData} />
+				<AddBillDialog open={addDialogOpen} toggleDialog={toggleAddDialog} />
+				<EditBillDialog
+					open={editDialogOpen}
+					toggleDialog={toggleEditDialog}
+					currentData={currentBillData}
+				/>
 				<Box className={classes.buttonBox}>
-					<Button variant="contained" color="primary" onClick={toggleDialog}>Add Bill</Button>
+					<Button variant="contained" color="primary" onClick={toggleAddDialog}>Add Bill</Button>
+				</Box>
+				<Box className={classes.buttonBox}>
+					<Button variant="contained" color="primary" onClick={toggleEditDialog}>Test</Button>
 				</Box>
 			</Box>
 		</AppbarDrawer>

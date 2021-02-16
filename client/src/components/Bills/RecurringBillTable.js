@@ -37,13 +37,9 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const RecurringBillTable = ({ bills }) => {
+const RecurringBillTable = ({ bills, getCurrentBillData }) => {
 
 	const classes = useStyles();
-
-	const handleClick = (event) => {
-		console.log("clicked");
-	}
 
 	return (
 
@@ -63,7 +59,10 @@ const RecurringBillTable = ({ bills }) => {
 						{bills.map((bill) => (
 							<TableRow hover key={bill._id}>
 								<TableCell align="left" className={classes.title}>
-									<ButtonBase className={classes.editButton} onClick={handleClick}>
+									<ButtonBase
+										className={classes.editButton}
+										onClick={() => getCurrentBillData(bill._id, true)}
+									>
 										{bill.title}
 									</ButtonBase>
 								</TableCell>

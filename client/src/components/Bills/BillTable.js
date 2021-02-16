@@ -34,13 +34,9 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const BillTable = ({ bills }) => {
+const BillTable = ({ bills, getCurrentBillData }) => {
 
 	const classes = useStyles();
-
-	const handleClick = (event) => {
-		console.log("clicked");
-	}
 
 	return (
 
@@ -59,7 +55,11 @@ const BillTable = ({ bills }) => {
 						{bills.map((bill) => (
 							<TableRow hover key={bill._id}>
 								<TableCell align="left" className={classes.title}>
-									<ButtonBase onClick={handleClick}>{bill.title}</ButtonBase>
+									<ButtonBase
+										onClick={() => getCurrentBillData(bill._id, false)}
+									>
+										{bill.title}
+									</ButtonBase>
 								</TableCell>
 								<TableCell align="left">{bill.date}</TableCell>
 								<TableCell align="right">{bill.amount.toFixed(2)}</TableCell>
