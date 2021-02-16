@@ -110,9 +110,6 @@ const Bills = () => {
 				<Box className={classes.buttonBox}>
 					<Button variant="contained" color="primary" onClick={toggleAddDialog}>Add Bill</Button>
 				</Box>
-				<Box className={classes.buttonBox}>
-					<Button variant="contained" color="primary" onClick={toggleEditDialog}>Test</Button>
-				</Box>
 			</Box>
 		</AppbarDrawer>
 

@@ -1,4 +1,3 @@
-import { useAuth } from "../../utils/useAuth";
 import AppbarDrawer from "../AppBarDrawer/AppbarDrawer";
 import BudgetContributions from "./BudgetContributions";
 
