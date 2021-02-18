@@ -2,6 +2,7 @@ import AppbarDrawer from "../AppBarDrawer/AppbarDrawer";
 import DashboardBillsSummary from "./DashboardBillsSummary";
 import DashboardAccountCard from "./DashboardAccountCard";
 import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
 
 
 const Dashboard = () => {
@@ -11,8 +12,12 @@ const Dashboard = () => {
 		<div>
 			<AppbarDrawer title={"Dashboard"}>
 				<Box component="main">
-					<DashboardBillsSummary />
-					<DashboardAccountCard />
+						<DashboardBillsSummary />
+					<Grid container justify="center" spacing={1}>
+						<Grid item xs={12} md={6} lg={4}>
+							<DashboardAccountCard />
+						</Grid>
+					</Grid>
 				</Box>
 			</AppbarDrawer>
 		</div>

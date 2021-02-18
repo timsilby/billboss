@@ -11,13 +11,15 @@ import ReceiptSharpIcon from "@material-ui/icons/ReceiptSharp";
 const useStyles = makeStyles((theme) => ({
 	root: {
 		minWidth: 350,
-		marginBottom: theme.spacing(4),
-		borderColor: theme.palette.primary.main
+		maxWidth: 500,
+		borderColor: theme.palette.primary.main,
+		height: "100%"
 	},
 	errorRoot: {
 		minWidth: 350,
-		marginBottom: theme.spacing(4),
-		borderColor: theme.palette.error.dark
+		maxWidth: 500,
+		borderColor: theme.palette.error.dark,
+		height: "100%"
 	},
 	title: {
 		padding: theme.spacing(2),

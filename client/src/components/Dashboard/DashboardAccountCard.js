@@ -13,7 +13,7 @@ dayjs.extend(utc);
 const useStyles = makeStyles((theme) => ({
 	root: {
 		minWidth: 350,
-		marginBottom: theme.spacing(4),
+		maxWidth: 500,
 		borderColor: theme.palette.primary.main
 	},
 	title: {

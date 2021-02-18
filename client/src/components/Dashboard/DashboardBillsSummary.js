@@ -3,15 +3,25 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import apiRequest from "../../utils/apiRequest";
 import DashboardBillCard from "./DashboardBillCard";
-
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
 
 dayjs.extend(utc);
+
+
+const useStyles = makeStyles((theme) => ({
+	gridRoot: {
+		marginBottom: theme.spacing(4),
+	}
+}));
 
 
 const DashboardBillsSummary = () => {
 
 	const [upcomingBills, setUpcomingBills] = useState([]);
 	const [overdueBills, setOverdueBills] = useState([]);
+
+	const classes = useStyles();
 
 
 	// Get bills from the database and display
@@ -62,10 +72,14 @@ const DashboardBillsSummary = () => {
 
 	return (
 
-		<>
-			<DashboardBillCard cardTitle={"Overdue Bills"} bills={overdueBills} error={true} />
-			<DashboardBillCard cardTitle={"Upcoming Bills"} bills={upcomingBills} />
-		</>
+		<Grid container justify="center" spacing={2} className={classes.gridRoot}>
+			<Grid item xs={12} md={6} lg={4}>
+				<DashboardBillCard cardTitle={"Overdue Bills"} bills={overdueBills} error={true} />
+			</Grid>
+			<Grid item xs={12} md={6} lg={4}>
+				<DashboardBillCard cardTitle={"Upcoming Bills"} bills={upcomingBills} />
+			</Grid>
+		</Grid>
 
 	);
 
