@@ -35,7 +35,7 @@ const LoginForm = () => {
 			await auth.firebaseLogin("tim@email.com", "password");
 
 			// Redirect to referring page or dashboard
-			history.push(referrer || "/dashboard");
+			history.push("/dashboard");
 
 		}
 		catch (err) {

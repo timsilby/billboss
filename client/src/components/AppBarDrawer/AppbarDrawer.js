@@ -9,6 +9,7 @@ import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import { makeStyles } from "@material-ui/core/styles";
 import DrawerMenu from "./DrawerMenu";
+import { useHistory } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -60,9 +61,11 @@ function AppbarDrawer(props) {
 	const [mobileOpen, setMobileOpen] = useState(false);
 
 	const auth = useAuth();
+	const history = useHistory();
 
 	const handleLogout = () => {
 		auth.firebaseLogout();
+		history.push("/");
 	}
 
 	const handleDrawerToggle = () => {
@@ -118,7 +121,7 @@ function AppbarDrawer(props) {
 						variant="permanent"
 						open
 					>
-						<DrawerMenu />
+						<DrawerMenu handleLogout={handleLogout} />
 					</Drawer>
 				</Hidden>
 			</nav>
