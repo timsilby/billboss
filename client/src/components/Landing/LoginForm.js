@@ -27,6 +27,27 @@ const LoginForm = () => {
 
 	const toggleDialog = () => setDialogOpen(!dialogOpen);
 
+	const handleClick = async () => {
+
+		try {
+
+			// Call the firebaseLogin function from useAuth.
+			await auth.firebaseLogin("tim@email.com", "password");
+
+			// Redirect to referring page or dashboard
+			history.push(referrer || "/dashboard");
+
+		}
+		catch (err) {
+
+			toggleDialog();
+			console.error(err);
+
+		}
+
+	}
+
+
 	// Login process
 	const handleSubmit = async (event) => {
 
@@ -103,6 +124,16 @@ const LoginForm = () => {
 							>
 								{"No account? Sign Up Here"}
 							</Link>
+						</Grid>
+					</Grid>
+					<Grid container justify="flex-end">
+						<Grid item>
+							{"or"}
+						</Grid>
+					</Grid>
+					<Grid container justify="flex-end">
+						<Grid item>
+							<Button type="button" onClick={handleClick} color="secondary" style={{paddingRight: 0}}>Sign In as a Guest</Button>
 						</Grid>
 					</Grid>
 				</Box>
