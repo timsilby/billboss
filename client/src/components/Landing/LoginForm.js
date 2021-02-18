@@ -131,9 +131,16 @@ const LoginForm = () => {
 							{"or"}
 						</Grid>
 					</Grid>
-					<Grid container justify="flex-end">
+					<Grid container justify="flex-end" style={{paddingTop: ".5rem"}}>
 						<Grid item>
-							<Button type="button" onClick={handleClick} color="secondary" style={{paddingRight: 0}}>Sign In as a Guest</Button>
+							<Link
+								to="#"
+								component={RouterLink}
+								onClick={handleClick}
+								color="secondary"
+							>
+								{"Sign In as a Guest"}
+							</Link>
 						</Grid>
 					</Grid>
 				</Box>
