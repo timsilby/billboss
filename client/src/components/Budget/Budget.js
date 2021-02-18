@@ -5,6 +5,7 @@ import apiRequest from "../../utils/apiRequest";
 import Box from "@material-ui/core/Box";
 import ContributionsCard from "./ContributionsCard";
 import { calculateYearlyTotal, calculatePeriodicAmount } from "../../utils/calculations";
+import Grid from "@material-ui/core/Grid";
 
 
 const Budget = () => {
@@ -106,12 +107,20 @@ const Budget = () => {
 
 		<AppbarDrawer title={"Budget"}>
 			<Box component="main">
-				<ContributionsCard
-					budgetHealth={budgetHealth}
-					currentContributions={currentContributions}
-					requiredContributions={requiredContributions}
-				/>
-				<BillTotalsTable bills={allBills} />
+			<Grid container justify="center" spacing={2}>
+					<Grid item>
+						<ContributionsCard
+							budgetHealth={budgetHealth}
+							currentContributions={currentContributions}
+							requiredContributions={requiredContributions}
+						/>
+					</Grid>
+				</Grid>
+				<Grid container justify="center" spacing={2}>
+					<Grid item>
+						<BillTotalsTable bills={allBills} />
+					</Grid>
+				</Grid>
 			</Box>
 		</AppbarDrawer>
 

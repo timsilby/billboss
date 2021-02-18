@@ -13,7 +13,7 @@ const Dashboard = () => {
 			<AppbarDrawer title={"Dashboard"}>
 				<Box component="main">
 						<DashboardBillsSummary />
-					<Grid container justify="center" spacing={1}>
+					<Grid container justify="center" spacing={2}>
 						<Grid item xs={12} md={6} lg={4}>
 							<DashboardAccountCard />
 						</Grid>

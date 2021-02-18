@@ -9,16 +9,18 @@ import Box from "@material-ui/core/Box";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import RecurringDepositTable from "./RecurringDepositTable";
+import Grid from "@material-ui/core/Grid";
 
 dayjs.extend(utc);
 
 const useStyles = makeStyles((theme) => ({
-
+	gridRoot: {
+		marginBottom: theme.spacing(4),
+	},
 	buttonBox: {
 		display: "flex",
 		justifyContent: "flex-end"
 	}
-
 }));
 
 const Account = () => {
@@ -121,8 +123,16 @@ const Account = () => {
 
 		<AppbarDrawer title={"Account"}>
 			<Box component="main">
-				<AccountCard deposit={nextDeposit} payment={nextPayment} balance={currentBalance} />
-				<RecurringDepositTable deposits={recurringDeposits} />
+				<Grid container justify="center" spacing={2} className={classes.gridRoot}>
+					<Grid item>
+						<AccountCard deposit={nextDeposit} payment={nextPayment} balance={currentBalance} />
+					</Grid>
+				</Grid>
+				<Grid container justify="center" spacing={2} className={classes.gridRoot}>
+					<Grid item>
+						<RecurringDepositTable deposits={recurringDeposits} />
+					</Grid>
+				</Grid>
 				<AddDepositDialog open={dialogOpen} toggleDialog={toggleDialog} />
 				<Box className={classes.buttonBox}>
 					<Button variant="contained" color="primary" onClick={toggleDialog}>Add Deposit</Button>

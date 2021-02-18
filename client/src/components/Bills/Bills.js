@@ -10,6 +10,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import EditBillDialog from "./EditBillDialog";
+import Grid from "@material-ui/core/Grid";
 
 dayjs.extend(utc);
 
@@ -17,8 +18,10 @@ const useStyles = makeStyles((theme) => ({
 	buttonBox: {
 		display: "flex",
 		justifyContent: "flex-end"
-	}
-}));
+	},
+	gridRoot: {
+		marginBottom: theme.spacing(4),
+	}}));
 
 const emptyFormData = {
 	title: "",
@@ -99,8 +102,14 @@ const Bills = () => {
 
 		<AppbarDrawer title={"Bills"}>
 			<Box component="main">
-				<RecurringBillTable bills={recurringBills} getCurrentBillData={getCurrentBillData} />
-				<BillTable bills={otherBills} getCurrentBillData={getCurrentBillData} />
+				<Grid container justify="center" spacing={2} className={classes.gridRoot}>
+					<Grid item xs={12} md={7}>
+						<RecurringBillTable bills={recurringBills} getCurrentBillData={getCurrentBillData} />
+					</Grid>
+					<Grid item xs={12} md={5}>
+						<BillTable bills={otherBills} getCurrentBillData={getCurrentBillData} />
+					</Grid>
+				</Grid>
 				<AddBillDialog
 					open={addDialogOpen}
 					toggleDialog={toggleAddDialog}

@@ -8,7 +8,8 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 		minWidth: 350,
 		marginBottom: theme.spacing(4),
-		borderColor: theme.palette.primary.main
+		borderColor: theme.palette.primary.main,
+		maxWidth: 700
 	},
 	title: {
 		padding: theme.spacing(2),
